@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mapa estilo Duolingo - Verde Dourado</title>
+  <style>
+ :root {
+  --bg: #cacaca;
+  --gold: #710000;
+  --gold-dark: #5a0202;
+  --green: rgb(23, 133, 47);
+  --green-dark: rgb(16, 90, 33);
+}
+
+body {
+  height: 340vh;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  color: white;
+  background-image: url('../IMG/LLS/fundo7.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* NAVBAR */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  background-color: #660e0e;
+  font-weight: 600;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 50;
+}
+
+.progress-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 50%;
+  min-width: 220px;
+}
+
+.progress-track {
+  flex: 1;
+  height: 10px;
+  background: #3a0101;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--green), var(--green-dark));
+  transition: width 400ms ease;
+}
+
+.progress-percent {
+  min-width: 40px;
+  text-align: right;
+}
+
+/* MAPA */
+.map {
+  position: relative;
+  width: 100%;
+  margin-top: 60px;
+  padding-bottom: 60px;
+}
+
+.progresso {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progresso.bloqueado {
+  pointer-events: none;
+  opacity: 1; 
+}
+
+
+.nivel {
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  background: radial-gradient(circle at top left, var(--gold), var(--gold-dark));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 🔥 Animação de pulsar do nível atual */
+@keyframes pulsar {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5); }
+  70% { transform: scale(1.05); box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.3); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5); }
+}
+
+.nivel.pulsando {
+  animation: pulsar 1.6s infinite;
+}
+
+.nivel img {
+  width: 65%;
+  height: 65%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.bau {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.inicio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.start {
+  width: 13vw;
+  margin: 30px;
+}
+
+.btn-inicio {
+  position: absolute;
+  background-color: #be0101;
+  border: none;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 12px 28px;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-top: 30px;
+}
+
+.btn-inicio:hover {
+  transform: scale(1.05);
+  background-color: #5a0202;
+}
+
+.end {
+  position: absolute;
+  width: 230px;
+  height: 230px;
+  object-fit: contain;
+}
+
+/* Recompensas */
+.recompensa-btn {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  background: linear-gradient(180deg, #ffd36b, #e6ac00);
+  color: #000;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-weight: 700;
+  display: none;
+  z-index: 60;
+}
+
+.mensagem {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #710000;
+  padding: 12px 18px;
+  border-radius: 12px;
+  display: none;
+  font-weight: 600;
+  z-index: 60;
+}
+
+
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR com barra de progresso (ADICIONADO) -->
+<div class="topbar">
+  <div>Mapa de Fases</div>
+  <div class="progress-wrap">
+    <div class="progress-track">
+      <div id="progressFill" class="progress-fill"></div>
+    </div>
+    <div id="percentual" class="progress-percent">0%</div>
+  </div>
+  <div style="width:80px;text-align:right;">&nbsp;</div>
+</div>
+
+<div class="map">
+  <div class="inicio">
+    <img class="start" src="../IMG/LLS/inicio.png" alt="">
+    <button class="btn-inicio" id="btnInicio">Iniciar</button>
+  </div>
+
+  <!-- Níveis - mantive exatamente como você mandou, só acrescentei data-nivel -->
+  <div class="progresso" data-nivel="0" style="top:250px; left:50%; transform: translateX(-50%);">
+    <div class="nivel"><img src="../IMG/LLS/livro_estatico.png" alt=""></div>
+  </div>
+
+  <div class="progresso" data-nivel="1" style="top:380px; left:46%; transform: translateX(-50%);">
+    <div class="nivel"><img src="../IMG/LLS/livro_estatico.png" alt=""></div>
+  </div>
+
+  <div class="progresso" data-nivel="2" style="top:510px; left:54%; transform: translateX(-50%);">
+    <div class="nivel"><img src="../IMG/LLS/livro_estatico.png" alt=""></div>
+  </div>
+
+  <div class="progresso" data-nivel="3" style="top:640px; left:50%; transform: translateX(-50%);">
+    <div class="nivel"><img src="../IMG/LLS/livro_estatico.png" alt=""></div>
+  </div>
+
+  <img class="bau" data-bau="1" src="../IMG/LLS/icons8-tesouro-64.png" style="top:770px; left:50%; transform: translateX(-50%);" />
+
+  <div class="progresso" data-nivel="4" style="top:910px; left:48%; transform: translateX(-50%);">
+    <div class="nivel"><img src="../IMG/LLS/livro_estatico.png" alt=""></div>
+  </div>
+
+  <div class="progresso" data-nivel="5" style="top:1040px; left:52%; transform: translateX(-50%);">
+    <div class="nivel"><img src="../IMG/LLS/livro_estatico.png" alt=""></div>
+  </div>
+
+  <div class="progresso" data-nivel="6" style="top:1170px; left:46%; transform: translateX(-50%);">
+    <div class="nivel"><img src="../IMG/LLS/livro_estatico.png" alt=""></div>
+  </div>
+
+  <div class="progresso" data-nivel="7" style="top:1300px; left:50%; transform: translateX(-50%);">
+    <div class="nivel"><img src="../IMG/LLS/livro_estatico.png" alt=""></div>
+  </div>
+
+  <img class="bau" data-bau="2" src="../IMG/LLS/icons8-tesouro-64 (1).png" style="top:1450px; left:50%; transform: translateX(-50%);" />
+
+  <div class="progresso" data-nivel="8" style="top:1580px; left:54%; transform: translateX(-50%);">
+    <div class="nivel"><img src="../IMG/LLS/livro_estatico.png" alt=""></div>
+  </div>
+
+  <div class="progresso" data-nivel="9" style="top:1710px; left:48%; transform: translateX(-50%);">
+    <div class="nivel"><img src="../IMG/LLS/livro_estatico.png" alt=""></div>
+  </div>
+
+  <div class="progresso" data-nivel="10" style="top:1840px; left:52%; transform: translateX(-50%);">
+    <div class="nivel"><img src="../IMG/LLS/livro_estatico.png" alt=""></div>
+  </div>
+
+  <div class="progresso" data-nivel="11" style="top:1970px; left:50%; transform: translateX(-50%);">
+    <div class="nivel"><img src="../IMG/LLS/livro_estatico.png" alt=""></div>
+  </div>
+
+  <img class="end" src="../IMG/LLS/porta_fechada.png" style="top:2100px; left:40%;" alt="">
+</div>
+
+<!-- botão de recompensa que aparece quando baú é desbloqueado -->
+<button id="recompensaBtn" class="recompensa-btn">Recompensa</button>
+<div id="mensagem" class="mensagem">🎁 Função desbloqueada!</div>
+
+<script>
+// --- RESET automático ao carregar a página ---
+localStorage.removeItem('mapa_perguntas_feitas');
+
+// --- variáveis principais ---
+const STORAGE_KEY = 'mapa_perguntas_feitas';
+let perguntasFeitas = 0;
+const totalPerguntas = 4;
+
+const niveis = Array.from(document.querySelectorAll('.progresso'));
+const btnInicio = document.getElementById('btnInicio');
+const progressFill = document.getElementById('progressFill');
+const percentual = document.getElementById('percentual');
+const mensagem = document.getElementById('mensagem');
+const recompensaBtn = document.getElementById('recompensaBtn');
+
+const milestoneLevels = [0, 3, 6, 9, 11];
+
+let milestoneIndex = 0;
+let nivelAcessivel = milestoneLevels[milestoneIndex];
+
+// imagens
+const imgBloqueado = "../IMG/LLS/livro.png";
+const imgAtual = "../IMG/LLS/livro_aberto.png";
+const imgCompleto = "../IMG/LLS/fase_ok.png";
+
+function atualizarUI() {
+  const percent = Math.round((perguntasFeitas / totalPerguntas) * 100);
+  progressFill.style.width = percent + '%';
+  percentual.textContent = percent + '%';
+
+  niveis.forEach((el, idx) => {
+    const img = el.querySelector('img');
+    const nivelDiv = el.querySelector('.nivel');
+    el.classList.remove('bloqueado');
+    nivelDiv.classList.remove('pulsando');
+
+    if (idx < nivelAcessivel) {
+      img.src = imgCompleto;
+    } else if (idx === nivelAcessivel) {
+      img.src = imgAtual;
+      nivelDiv.classList.add('pulsando');
+    } else {
+      img.src = imgBloqueado;
+      el.classList.add('bloqueado');
+    }
+  });
+}
+
+// botão "Iniciar" leva direto ao menu
+btnInicio.addEventListener('click', (e) => {
+  e.preventDefault();
+  window.location.href = "menu.html";
+});
+
+// clique nos níveis
+niveis.forEach((el, idx) => {
+  el.addEventListener('click', () => {
+    // se for o nível atual → abre menu.html
+    if (idx === nivelAcessivel) {
+      window.location.href = "menu.html";
+      return;
+    }
+
+    // se for anterior → mostrar aviso
+    if (idx < nivelAcessivel) {
+      alert('Nível já concluído.');
+      return;
+    }
+
+    // se for futuro → bloqueado
+    alert('Complete os níveis anteriores primeiro.');
+  });
+});
+
+// inicializa interface zerada
+atualizarUI();
+
+</script>
+
+</body>
+</html>

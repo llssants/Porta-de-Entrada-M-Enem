@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal de Estudos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fff;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(90deg, #8B0000, #B22222); /* vermelho escuro */
+      color: #fff;
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+
+    header nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 25px;
+      font-weight: bold;
+    }
+
+    .dashboard {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .welcome {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .welcome h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: #8B0000;
+    }
+
+    .welcome p {
+      font-size: 1.1rem;
+      color: #555;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+
+    .card {
+      background: #fff;
+      border: 2px solid #8B0000;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 8px 15px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s, box-shadow 0.2s;
+      min-height: 220px;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 20px rgba(0,0,0,0.12);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: #8B0000;
+    }
+
+    .card p {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    .card .stats {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .card .stats span {
+      font-weight: bold;
+      color: #8B0000;
+    }
+
+    .card button {
+      padding: 10px 20px;
+      border: none;
+      background: #B22222;
+      color: #fff;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.2s;
+    }
+
+    .card button:hover {
+      background: #8B0000;
+    }
+
+    /* Redação centralizada na última linha */
+    .full-width-center {
+      grid-column: span 2;
+      display: flex;
+      justify-content: center;
+    }
+
+    .redacao-card {
+      width: 50%;
+    }
+
+    @media (max-width: 768px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .full-width-center {
+        grid-column: span 1;
+      }
+
+      .redacao-card {
+        width: 100%;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Porta de entrada</h1>
+  <nav>
+    <a href="#">Início</a>
+    <a href="#">Grupos</a>
+    <a href="#">Ranking</a>
+    <a href="#">Perfil</a>
+  </nav>
+</header>
+
+<div class="dashboard">
+  <div class="welcome">
+    <h2>Bem-vindo(a) ao Portal!</h2>
+    <p>Escolha uma área de estudo e comece a treinar suas habilidades agora mesmo.</p>
+  </div>
+
+  <div class="grid">
+
+    <div class="card">
+      <h3>Linguagens</h3>
+      <p>Português, Línguas Estrangeiras, Artes e Educação Física</p>
+      <div class="stats">
+        <span>0 Questões</span>
+        <a href="humanas.html"><button>Treinar</button></a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Ciências Humanas</h3>
+      <p>História, Geografia, Filosofia e Sociologia</p>
+      <div class="stats">
+        <span>0 Questões</span>
+        <button>Treinar</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Matemática</h3>
+      <p>Matemática aplicada à realidade</p>
+      <div class="stats">
+        <span>0 Questões</span>
+        <button>Treinar</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Ciências da Natureza</h3>
+      <p>Biologia, Física e Química</p>
+      <div class="stats">
+        <span>0 Questões</span>
+        <button>Treinar</button>
+      </div>
+    </div>
+
+    <!-- Redação centralizada -->
+    <div class="full-width-center">
+      <div class="card redacao-card">
+        <h3>Redação</h3>
+        <p>Pratique sua escrita e desenvolva textos nota 1000!</p>
+        <div class="stats">
+          <span>0 Redações</span>
+          <button>Treinar</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

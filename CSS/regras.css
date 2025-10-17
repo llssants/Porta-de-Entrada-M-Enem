@@ -1,0 +1,262 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fff1f1;
+  color: #fff;
+  display: flex;
+  height: 100vh;
+
+}
+
+* {
+     box-sizing: border-box;
+     margin: 0;
+     padding: 0;
+ }
+
+ 
+ .sidebar {
+    height: 100vh;
+     background: var(--bg-dark);
+     background-color: #b71c1c;
+     color:#ffffff;
+     padding: 20px;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+     margin-right: 20vh;
+ }
+
+ .sidebar h1 {
+     font-size: 20px;
+     margin-bottom: 20px;
+     color: var(--primary-light);
+ }
+
+ .menua {
+     display: block;
+     padding: 10px;
+     margin: 5px 0;
+     text-decoration: none;
+     color: var(--text-light);
+     border-radius: 8px;
+ }
+
+
+ .menua:hover {
+  background-color: #d62a2a;
+  border-radius: 0px;
+ }
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.logo img {
+    height: 50px;
+    width: auto;
+}
+
+.logo p {
+    margin-top: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+
+.logar {
+    width: 40%;
+    height: auto;
+    color: #f2f2f2;
+
+}
+
+.menu-icon {
+    display: none;
+}
+
+h2 {
+    font: 2em sans-serif;
+    margin: 2px;
+}
+
+.regras {
+  display: block;
+  padding: 10px;
+  margin: 5px 0;
+  text-decoration: none;
+  color: var(--text-light);
+  border-radius: 8px;
+  background-color: #d62a2a;
+}
+
+
+strong{
+  background-color: #d62a2a;
+}
+
+/* Container principal: sidebar + conteúdo */
+.container {
+  display: flex;
+}
+
+h1{
+    margin: 3.5vh;
+    color: #b71c1c;
+    text-align: left;
+}
+
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(3, 2fr);
+  gap: 20px;
+  max-width: 150vh;
+  /* margin: 4vh; */
+}
+
+/* texto */
+.card {
+  margin: 1.3vh;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(146, 36, 36, 0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: 120vh;
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* texto */
+.card-content {
+  flex: 1;
+  padding: 20px;
+  background: #be1d1d;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.card-content h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+@media screen and (max-width: 900px) {
+  .cards-container {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+}
+
+  .card {
+    height: auto;
+  }
+
+/* Modal geral */
+.modal {
+  display: none; /* escondido por padrão */
+  position: fixed;
+  z-index: 999;
+  left: 0; top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4); /* fundo escuro semitransparente */
+  align-items: center;
+  justify-content: center;
+}
+
+/* Modal ativo */
+.modal.active {
+  display: flex; /* só aparece quando a classe active for adicionada */
+}
+
+/* Caixa centralizada */
+.modalcont {
+  background: #b71c1c; /* mesma cor do sidebar */
+  color: #fff;
+  padding: 30px 20px;
+  border-radius: 12px;
+  width: 350px;
+  max-width: 90%;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Input */
+.modalcont input {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  width: 100%;
+  font-size: 16px;
+  text-align: center;
+}
+
+/* Botão */
+.modalcont button {
+  padding: 10px 0;
+  border: none;
+  border-radius: 8px;
+  background-color: #d62a2a;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.modalcont button:hover {
+  background-color: #f44336;
+}
+
+/* Feedback */
+#feedback {
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+/* Fechar */
+.close {
+  position: absolute;
+  top: 10px; right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #fff;
+}
+
+/* Easter egg icon */
+.egg {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.egg img {
+  width: 50px; /* tamanho fixo */
+  height: 50px;
+  object-fit: contain; /* mantém proporção */
+  opacity: 0.8;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.egg img:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}

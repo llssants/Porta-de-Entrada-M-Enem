@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regras do nosso Jogo</title>
+    <link rel="stylesheet" href="../CSS/regras.css">
+</head>
+
+
+<body>
+
+    <div class="sidebar">
+    <div>
+      <h1>Perfil</h1>
+      <nav class="menu">
+        <a class="menua" href="perfil.html" class="active">Menu principal</a>
+        <a class="menua" href="#">Minhas informações</a>
+        <a class="menua" href="#">Minha pontuação</a>
+        <a class="regras" href="regras.html">Regras do jogo</a>
+        <a class="menua" href="#">Ajuda</a>
+        <a class="menua" href="#">Notificações</a>
+        <a class="menua" href="#">Mensagens</a>
+      </nav>
+    </div>
+    <div>
+      <button style="background:var(--primary);color:white;padding:10px;border:none;border-radius:8px;width:100%;cursor:pointer;">Download App</button>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <h1>Regras do nosso Jogo </h1>
+
+    <div class="cards-container">
+      <div class="card">
+        <img src="../IMG/imgcard1.jpg" alt="Sistema de Pontos">
+        <div class="card-content">
+          <h2>Sistema de Pontos</h2>
+          <p class="prg">Ganhe pontos completando atividades, assistindo aulas e participando de simulados. Use seus pontos para subir de nível e desbloquear recompensas exclusivas!</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="../IMG/imgcard.jpg" alt="Níveis e Recompensas">
+        <div class="card-content">
+          <h2> Níveis e Recompensas</h2>
+          <p class="prg">Suba de nível conforme acumula pontos: Iniciante, Aprendiz, Avançado e Mestre. Quanto maior o nível, mais vantagens você terá no sistema.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="../IMG/imgcard3.jpg" alt="Missões Semanais">
+        <div class="card-content">
+          <h2> Missões Semanais</h2>
+          <p class="prg">Complete missões semanais para ganhar bônus extras de pontuação. Isso ajuda você a manter a constância e melhorar seu desempenho!</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="../IMG/imgcard4.jpg" alt="Ranking de Jogadores">
+        <div class="card-content">
+          <h2> Ranking de Jogadores</h2>
+          <p class="prg">Dispute com outros alunos no ranking geral e veja quem está se destacando! Os três melhores recebem benefícios especiais a cada mês.</p>
+        </div>
+      </div>
+
+        <div class="card">
+          <img src="../IMG/imgcard5.jpg" alt="Conquistas e Medalhas">
+          <div class="card-content">
+            <h2>Conquistas e Medalhas</h2>
+            <p class="prg">Receba medalhas especiais ao atingir objetivos importantes, como completar semanas de estudo ou alcançar novos níveis no jogo.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="../IMG/imgcard6.jpg" alt="Regras de Participação">
+          <div class="card-content">
+            <h2>Regras de Participação</h2>
+            <p class="prg">Mantenha-se ativo, siga as orientações e evite práticas desleais. O respeito às regras garante um ambiente justo e divertido para todos!</p>
+          </div>
+        </div>
+        
+    </div>
+  </div>
+ 
+  <div class="egg">
+    <a href=""><img src="../IMG/logo.png" alt="" id="eggBtn"></a>
+  </div> 
+  
+  <div id="quizmodal" class="modal">
+  <div class="modalcont">
+    <span class="close">&times;</span>
+    <h2>Pergunta secreta</h2>
+    <p>Responda corretamente e ganhe +10 pontos 🎉</p>
+    <input type="text" id="responder" placeholder="Digite sua resposta">
+    <button id="mandar" type="button">Responder</button>
+    <p id="feedback"></p>
+  </div>
+</div>
+
+
+
+<script>
+
+const modal = document.getElementById("quizmodal");
+const eggBtn = document.getElementById("eggBtn");
+const closeBtn = document.querySelector(".close");
+const submitBtn = document.getElementById("mandar");
+const feedback = document.getElementById("feedback");
+const input = document.getElementById("responder");
+
+// Abrir modal
+eggBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  modal.classList.add("active");
+  feedback.textContent = "";
+  input.value = "";
+});
+
+// Fechar modal
+closeBtn.addEventListener("click", () => {
+  modal.classList.remove("active");
+});
+
+// Fechar clicando fora
+window.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    modal.classList.remove("active");
+  }
+});
+
+// Verificar resposta
+submitBtn.addEventListener("click", () => {
+  const answer = input.value.trim().toLowerCase();
+
+  if(answer.includes("ganhar pontos") || answer.includes("subir de nível")){
+    feedback.style.color = "lightgreen";
+    feedback.textContent = "Resposta correta! +10 pontos no ranking 🎉";
+  } else {
+    feedback.style.color = "#ffcccb";
+    feedback.textContent = "Resposta incorreta. Tente novamente!";
+  }
+});
+
+
+</script>
+
+
+</body>
+</html>

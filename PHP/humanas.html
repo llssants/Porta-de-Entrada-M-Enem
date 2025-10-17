@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Filtro por Disciplinas - Humanas</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 30px;
+      font-family: 'Roboto', sans-serif;
+      background: #fff;
+      color: #333;
+    }
+
+    h2.titulo {
+      color: #8B0000;
+      border-left: 5px solid #B22222;
+      padding-left: 15px;
+      margin-bottom: 30px;
+      font-size: 1.8rem;
+    }
+
+    .filtro-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 25px;
+    }
+
+    .filtro-card {
+      background: #faeaea; /* vermelho claro suave */
+      border-radius: 15px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+    }
+
+    .filtro-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 20px rgba(139, 0, 0, 0.2);
+    }
+
+    .filtro-card .icon {
+      font-size: 50px;
+      margin: 30px 0 10px;
+    }
+
+    .filtro-card .nome {
+      background-color: #B22222;
+      color: white;
+      width: 100%;
+      padding: 12px 0;
+      font-weight: bold;
+      font-size: 1.1rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <h2 class="titulo">Ciências Humanas</h2>
+
+  <div class="filtro-grid">
+
+    <a href="materias/historia.html"><div class="filtro-card">
+      <div class="icon"></div>
+      <div class="nome">História</div>
+    </div>
+</a>
+    <a href="materias/geografia.html"><div class="filtro-card">
+      <div class="icon"></div>
+      <div class="nome">Geografia</div>
+    </div>
+</a>
+    <a href="materias/filosofia.html"><div class="filtro-card">
+      <div class="icon"></div>
+      <div class="nome">Filosofia</div>
+    </div>
+</a>
+    <a href="materias/sociologia.html"><div class="filtro-card">
+      <div class="icon"></div>
+      <div class="nome">Sociologia</div>
+    </div></a>
+
+  </div>
+
+</body>
+</html>

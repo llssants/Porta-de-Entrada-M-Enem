@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dashboard Gamificado</title>
+  <link rel="stylesheet" href="../CSS/perfil.css">
+  <script>
+    // Marca o dia atual no calendário
+    window.onload = function () {
+      const today = new Date();
+      const day = today.getDate();
+      const element = document.getElementById("day-" + day);
+      if (element) {
+        element.classList.add("today");
+      }
+    };
+  </script>
+</head>
+<body>
+  <div class="sidebar">
+    <div>
+      <h1>Perfil</h1>
+      <nav class="menu">
+        <a href="#" class="active">Menu principal</a>
+        <a href="#">Minhas informações</a>
+        <a href="#">Minha pontuação</a>
+        <a href="regras.html">Regras do jogo</a>
+        <a href="#">Ajuda</a>
+        <a href="#">Notificações</a>
+        <a href="#">Mensagens</a>
+      </nav>
+    </div>
+    <div>
+      <button style="background:var(--primary);color:white;padding:10px;border:none;border-radius:8px;width:100%;cursor:pointer;">Download App</button>
+    </div>
+  </div>
+
+  <div class="main">
+    <header>
+      <h2>Bem-vindo novamente 🎮</h2>
+      <input type="text" placeholder="Buscar conteúdos" style="padding:8px;border-radius:8px;border:1px solid #ccc;">
+    </header>
+
+    <!-- Cards principais -->
+    <section class="cards">
+      <div class="card"><h3>Minha Pontuação</h3><p>⭐ 250 pontos</p></div>
+      <div class="card"><h3>Regras do Jogo</h3><p>Clique aqui para visualizar</p></div>
+      <div class="card"><h3>Ajuda</h3><p>Precisa de suporte? Clique aqui!</p></div>
+    </section>
+
+    <!-- Área principal com gráfico e cronograma -->
+    <div style="display:grid;grid-template-columns:2fr 1fr;gap:20px;margin-top:20px;">
+      <div>
+        <div class="card">
+          <h3>📊 Meu Desempenho</h3>
+          <canvas id="graficoDesempenho" width="400" height="200"></canvas>
+        </div>
+        <div class="card" style="margin-top:20px;">
+         <button class="btn-cronograma"><a href="cronograma.html">Faça seu Cronograma</a></button>
+        </div>
+      </div>
+
+      <!-- Widgets laterais -->
+      <div class="side-widgets">
+        <div class="calendar">
+      <h3>Setembro 2025</h3>
+      <table class="calendar">
+        <thead>
+          <tr>
+            <th>Dom</th><th>Seg</th><th>Ter</th><th>Qua</th><th>Qui</th><th>Sex</th><th>Sáb</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td><td>1</td><td>2</td><td class="today">3</td><td>4</td><td>5</td><td>6</td>
+          </tr>
+          <tr>
+            <td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td>
+          </tr>
+          <tr>
+            <td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td>
+          </tr>
+          <tr>
+            <td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td>
+          </tr>
+          <tr>
+            <td>28</td><td>29</td><td>30</td><td></td><td></td><td></td><td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+        <div class="card assignments" style="margin-top:20px;">
+          <h3>Missões Diárias</h3>
+          <p>✔ Estudar 1h Matemática</p>
+          <p>✔ Ler 10 páginas</p>
+          <p>⬜ Fazer 1 redação</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gráfico com Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const ctx = document.getElementById('graficoDesempenho').getContext('2d');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex'],
+        datasets: [{
+          label: 'Horas de Estudo',
+          data: [2, 3, 1, 4, 2],
+          borderColor: 'red',
+          backgroundColor: 'rgba(255,0,0,0.2)',
+          tension: 0.3,
+          fill: true
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: true } }
+      }
+    });
+  </script>
+
+</body>
+</html>
