@@ -4,189 +4,335 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Faça seu Cronograma</title>
+    <title>Cronograma de Estudos - Planejamento Inteligente</title>
     <link rel="stylesheet" href="../CSS/cronograma.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
-    <h1> Monte seu Cronograma</h1>
-    <form id="cronogramaForm">
-        <label for="metodo">Escolha o método de estudo:</label>
-        <select id="metodo" required>
-            <option value="">Selecione</option>
-            <option value="ativo">Ativo (mapas mentais, flashcards...)</option>
-            <option value="passivo">Passivo (leituras, assistir aulas...)</option>
-            <option value="hibrido">Híbrido (equilibrado)</option>
-        </select>
-
-        <label>Dificuldade por disciplina:</label>
-        <div id="disciplinas">
-
-            <!-- <div class="card"> -->
-            <div>
-                <span>Português</span>
-                <select data-materia="Português">
-                    <option value="5">Muito difícil</option>
-                    <option value="4">Difícil</option>
-                    <option value="3" selected>Médio</option>
-                    <option value="2">Fácil</option>
-                    <option value="1">Muito fácil</option>
-                </select>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="header-content">
+            <div class="header-icon">
+                <i class="fas fa-calendar-alt"></i>
             </div>
-            <div>
-                <span>Literatura</span>
-                <select data-materia="Literatura">
-                    <option value="5">Muito difícil</option>
-                    <option value="4">Difícil</option>
-                    <option value="3" selected>Médio</option>
-                    <option value="2">Fácil</option>
-                    <option value="1">Muito fácil</option>
-                </select>
+            <div class="header-text">
+                <h1>Cronograma de Estudos</h1>
+                <p>Planeje seu sucesso com inteligência e organização</p>
             </div>
-            <div>
-                <span>Redação</span>
-                <select data-materia="Redação">
-                    <option value="5">Muito difícil</option>
-                    <option value="4">Difícil</option>
-                    <option value="3" selected>Médio</option>
-                    <option value="2">Fácil</option>
-                    <option value="1">Muito fácil</option>
-                </select>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Form Card -->
+        <div class="form-card">
+            <div class="card-header">
+                <i class="fas fa-sliders-h"></i>
+                <h2>Configure seu Cronograma</h2>
             </div>
-            <div>
-                <span>Lingua estrangeira</span>
-                <select data-materia="Lingua_estrangeira">
-                    <option value="5">Muito difícil</option>
-                    <option value="4">Difícil</option>
-                    <option value="3" selected>Médio</option>
-                    <option value="2">Fácil</option>
-                    <option value="1">Muito fácil</option>
-                </select>
+
+            <form id="cronogramaForm">
+                <!-- Método de Estudo -->
+                <div class="form-section">
+                    <label class="section-label">
+                        <i class="fas fa-brain"></i>
+                        Método de Estudo
+                    </label>
+                    <div class="method-selector">
+                        <div class="method-option" data-value="ativo">
+                            <div class="method-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div class="method-info">
+                                <h3>Ativo</h3>
+                                <p>Mapas mentais, flashcards, exercícios práticos</p>
+                            </div>
+                            <input type="radio" name="metodo" value="ativo" required>
+                        </div>
+                        <div class="method-option" data-value="passivo">
+                            <div class="method-icon">
+                                <i class="fas fa-book-open"></i>
+                            </div>
+                            <div class="method-info">
+                                <h3>Passivo</h3>
+                                <p>Leituras, assistir aulas, revisões teóricas</p>
+                            </div>
+                            <input type="radio" name="metodo" value="passivo" required>
+                        </div>
+                        <div class="method-option" data-value="hibrido">
+                            <div class="method-icon">
+                                <i class="fas fa-balance-scale"></i>
+                            </div>
+                            <div class="method-info">
+                                <h3>Híbrido</h3>
+                                <p>Equilíbrio entre teoria e prática</p>
+                            </div>
+                            <input type="radio" name="metodo" value="hibrido" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Horas de Estudo -->
+                <div class="form-section">
+                    <label class="section-label">
+                        <i class="fas fa-clock"></i>
+                        Horas Semanais Disponíveis
+                    </label>
+                    <div class="hours-input-wrapper">
+                        <input type="number" id="horas" min="1" max="168" placeholder="Ex: 20" required>
+                        <span class="hours-suffix">horas/semana</span>
+                    </div>
+                </div>
+
+                <!-- Disciplinas -->
+                <div class="form-section">
+                    <label class="section-label">
+                        <i class="fas fa-graduation-cap"></i>
+                        Nível de Dificuldade por Disciplina
+                    </label>
+                    <div class="disciplines-grid">
+                        <!-- Linguagens -->
+                        <div class="discipline-card">
+                            <div class="discipline-header">
+                                <i class="fas fa-language"></i>
+                                <span>Português</span>
+                            </div>
+                            <select data-materia="Português">
+                                <option value="5">⭐⭐⭐⭐⭐ Muito difícil</option>
+                                <option value="4">⭐⭐⭐⭐ Difícil</option>
+                                <option value="3" selected>⭐⭐⭐ Médio</option>
+                                <option value="2">⭐⭐ Fácil</option>
+                                <option value="1">⭐ Muito fácil</option>
+                            </select>
+                        </div>
+
+                        <div class="discipline-card">
+                            <div class="discipline-header">
+                                <i class="fas fa-book"></i>
+                                <span>Literatura</span>
+                            </div>
+                            <select data-materia="Literatura">
+                                <option value="5">⭐⭐⭐⭐⭐ Muito difícil</option>
+                                <option value="4">⭐⭐⭐⭐ Difícil</option>
+                                <option value="3" selected>⭐⭐⭐ Médio</option>
+                                <option value="2">⭐⭐ Fácil</option>
+                                <option value="1">⭐ Muito fácil</option>
+                            </select>
+                        </div>
+
+                        <div class="discipline-card">
+                            <div class="discipline-header">
+                                <i class="fas fa-pen-fancy"></i>
+                                <span>Redação</span>
+                            </div>
+                            <select data-materia="Redação">
+                                <option value="5">⭐⭐⭐⭐⭐ Muito difícil</option>
+                                <option value="4">⭐⭐⭐⭐ Difícil</option>
+                                <option value="3" selected>⭐⭐⭐ Médio</option>
+                                <option value="2">⭐⭐ Fácil</option>
+                                <option value="1">⭐ Muito fácil</option>
+                            </select>
+                        </div>
+
+                        <div class="discipline-card">
+                            <div class="discipline-header">
+                                <i class="fas fa-globe"></i>
+                                <span>Língua Estrangeira</span>
+                            </div>
+                            <select data-materia="Lingua_estrangeira">
+                                <option value="5">⭐⭐⭐⭐⭐ Muito difícil</option>
+                                <option value="4">⭐⭐⭐⭐ Difícil</option>
+                                <option value="3" selected>⭐⭐⭐ Médio</option>
+                                <option value="2">⭐⭐ Fácil</option>
+                                <option value="1">⭐ Muito fácil</option>
+                            </select>
+                        </div>
+
+                        <!-- Exatas -->
+                        <div class="discipline-card">
+                            <div class="discipline-header">
+                                <i class="fas fa-calculator"></i>
+                                <span>Matemática</span>
+                            </div>
+                            <select data-materia="Matemática">
+                                <option value="5">⭐⭐⭐⭐⭐ Muito difícil</option>
+                                <option value="4">⭐⭐⭐⭐ Difícil</option>
+                                <option value="3" selected>⭐⭐⭐ Médio</option>
+                                <option value="2">⭐⭐ Fácil</option>
+                                <option value="1">⭐ Muito fácil</option>
+                            </select>
+                        </div>
+
+                        <div class="discipline-card">
+                            <div class="discipline-header">
+                                <i class="fas fa-atom"></i>
+                                <span>Física</span>
+                            </div>
+                            <select data-materia="Física">
+                                <option value="5">⭐⭐⭐⭐⭐ Muito difícil</option>
+                                <option value="4">⭐⭐⭐⭐ Difícil</option>
+                                <option value="3" selected>⭐⭐⭐ Médio</option>
+                                <option value="2">⭐⭐ Fácil</option>
+                                <option value="1">⭐ Muito fácil</option>
+                            </select>
+                        </div>
+
+                        <div class="discipline-card">
+                            <div class="discipline-header">
+                                <i class="fas fa-flask"></i>
+                                <span>Química</span>
+                            </div>
+                            <select data-materia="Química">
+                                <option value="5">⭐⭐⭐⭐⭐ Muito difícil</option>
+                                <option value="4">⭐⭐⭐⭐ Difícil</option>
+                                <option value="3" selected>⭐⭐⭐ Médio</option>
+                                <option value="2">⭐⭐ Fácil</option>
+                                <option value="1">⭐ Muito fácil</option>
+                            </select>
+                        </div>
+
+                        <!-- Biológicas -->
+                        <div class="discipline-card">
+                            <div class="discipline-header">
+                                <i class="fas fa-dna"></i>
+                                <span>Biologia</span>
+                            </div>
+                            <select data-materia="Biologia">
+                                <option value="5">⭐⭐⭐⭐⭐ Muito difícil</option>
+                                <option value="4">⭐⭐⭐⭐ Difícil</option>
+                                <option value="3" selected>⭐⭐⭐ Médio</option>
+                                <option value="2">⭐⭐ Fácil</option>
+                                <option value="1">⭐ Muito fácil</option>
+                            </select>
+                        </div>
+
+                        <!-- Humanas -->
+                        <div class="discipline-card">
+                            <div class="discipline-header">
+                                <i class="fas fa-landmark"></i>
+                                <span>História</span>
+                            </div>
+                            <select data-materia="História">
+                                <option value="5">⭐⭐⭐⭐⭐ Muito difícil</option>
+                                <option value="4">⭐⭐⭐⭐ Difícil</option>
+                                <option value="3" selected>⭐⭐⭐ Médio</option>
+                                <option value="2">⭐⭐ Fácil</option>
+                                <option value="1">⭐ Muito fácil</option>
+                            </select>
+                        </div>
+
+                        <div class="discipline-card">
+                            <div class="discipline-header">
+                                <i class="fas fa-map-marked-alt"></i>
+                                <span>Geografia</span>
+                            </div>
+                            <select data-materia="Geografia">
+                                <option value="5">⭐⭐⭐⭐⭐ Muito difícil</option>
+                                <option value="4">⭐⭐⭐⭐ Difícil</option>
+                                <option value="3" selected>⭐⭐⭐ Médio</option>
+                                <option value="2">⭐⭐ Fácil</option>
+                                <option value="1">⭐ Muito fácil</option>
+                            </select>
+                        </div>
+
+                        <div class="discipline-card">
+                            <div class="discipline-header">
+                                <i class="fas fa-brain"></i>
+                                <span>Filosofia</span>
+                            </div>
+                            <select data-materia="Filosofia">
+                                <option value="5">⭐⭐⭐⭐⭐ Muito difícil</option>
+                                <option value="4">⭐⭐⭐⭐ Difícil</option>
+                                <option value="3" selected>⭐⭐⭐ Médio</option>
+                                <option value="2">⭐⭐ Fácil</option>
+                                <option value="1">⭐ Muito fácil</option>
+                            </select>
+                        </div>
+
+                        <div class="discipline-card">
+                            <div class="discipline-header">
+                                <i class="fas fa-users"></i>
+                                <span>Sociologia</span>
+                            </div>
+                            <select data-materia="Sociologia">
+                                <option value="5">⭐⭐⭐⭐⭐ Muito difícil</option>
+                                <option value="4">⭐⭐⭐⭐ Difícil</option>
+                                <option value="3" selected>⭐⭐⭐ Médio</option>
+                                <option value="2">⭐⭐ Fácil</option>
+                                <option value="1">⭐ Muito fácil</option>
+                            </select>
+                        </div>
+
+                        <!-- Outras -->
+                        <div class="discipline-card">
+                            <div class="discipline-header">
+                                <i class="fas fa-palette"></i>
+                                <span>Artes</span>
+                            </div>
+                            <select data-materia="Artes">
+                                <option value="5">⭐⭐⭐⭐⭐ Muito difícil</option>
+                                <option value="4">⭐⭐⭐⭐ Difícil</option>
+                                <option value="3" selected>⭐⭐⭐ Médio</option>
+                                <option value="2">⭐⭐ Fácil</option>
+                                <option value="1">⭐ Muito fácil</option>
+                            </select>
+                        </div>
+
+                        <div class="discipline-card">
+                            <div class="discipline-header">
+                                <i class="fas fa-running"></i>
+                                <span>Educação Física</span>
+                            </div>
+                            <select data-materia="Educação_fisica">
+                                <option value="5">⭐⭐⭐⭐⭐ Muito difícil</option>
+                                <option value="4">⭐⭐⭐⭐ Difícil</option>
+                                <option value="3" selected>⭐⭐⭐ Médio</option>
+                                <option value="2">⭐⭐ Fácil</option>
+                                <option value="1">⭐ Muito fácil</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <button class="submit-button" type="submit">
+                    <i class="fas fa-magic"></i>
+                    <span>Gerar Cronograma Personalizado</span>
+                </button>
+            </form>
+        </div>
+
+        <!-- Results Section -->
+        <div class="resultado" id="resultado" style="display:none;">
+            <div class="result-header">
+                <i class="fas fa-check-circle"></i>
+                <h2>Seu Cronograma Personalizado</h2>
             </div>
-            <div>
-            <span>Matemática</span>
-            <select data-materia="Matemática">
-                <option value="5">Muito difícil</option>
-                <option value="4">Difícil</option>
-                <option value="3" selected>Médio</option>
-                <option value="2">Fácil</option>
-                <option value="1">Muito fácil</option>
-            </select>
-        </div>
-            <div>
-                <span>Física</span>
-                <select data-materia="Física">
-                    <option value="5">Muito difícil</option>
-                    <option value="4">Difícil</option>
-                    <option value="3" selected>Médio</option>
-                    <option value="2">Fácil</option>
-                    <option value="1">Muito fácil</option>
-                </select>
+            <div class="result-content">
+                <ul id="listaResultado"></ul>
             </div>
-            <div>
-                
-                <span>Química</span>
-                <select data-materia="Química">
-                    <option value="5">Muito difícil</option>
-                    <option value="4">Difícil</option>
-                    <option value="3" selected>Médio</option>
-                    <option value="2">Fácil</option>
-                    <option value="1">Muito fácil</option>
-                </select>
+            <div class="result-actions">
+                <button class="action-button primary">
+                    <i class="fas fa-calendar-plus"></i>
+                    <span>Adicionar ao Cronograma Semanal</span>
+                </button>
+                <button class="action-button secondary">
+                    <i class="fas fa-tasks"></i>
+                    <span>Transformar em Missão Semanal</span>
+                </button>
             </div>
-        <!-- </div> -->
-
-        <div>
-            <!-- <div class="card"> -->
-            <span>Biologia</span>
-            <select data-materia="Biologia">
-                <option value="5">Muito difícil</option>
-                <option value="4">Difícil</option>
-                <option value="3" selected>Médio</option>
-                <option value="2">Fácil</option>
-                <option value="1">Muito fácil</option>
-            </select>
-        </div>
-        <div>
-            <span>História</span>
-            <select data-materia="História">
-                <option value="5">Muito difícil</option>
-                <option value="4">Difícil</option>
-                <option value="3" selected>Médio</option>
-                <option value="2">Fácil</option>
-                <option value="1">Muito fácil</option>
-            </select>
-        </div>
-        <div>
-            <span>Geografia</span>
-            <select data-materia="Geografia">
-                <option value="5">Muito difícil</option>
-                <option value="4">Difícil</option>
-                <option value="3" selected>Médio</option>
-                <option value="2">Fácil</option>
-                <option value="1">Muito fácil</option>
-            </select>
-        </div>
-        <div>
-            <span>Filosofia</span>
-            <select data-materia="Filosofia">
-                <option value="5">Muito difícil</option>
-                <option value="4">Difícil</option>
-                <option value="3" selected>Médio</option>
-                <option value="2">Fácil</option>
-                <option value="1">Muito fácil</option>
-            </select>
-        </div>
-        <div>
-            <span>Sociologia</span>
-            <select data-materia="Sociologia">
-                <option value="5">Muito difícil</option>
-                <option value="4">Difícil</option>
-                <option value="3" selected>Médio</option>
-                <option value="2">Fácil</option>
-                <option value="1">Muito fácil</option>
-            </select>
-        </div>
-        <div>
-            <span>Artes</span>
-            <select data-materia="Artes">
-                <option value="5">Muito difícil</option>
-                <option value="4">Difícil</option>
-                <option value="3" selected>Médio</option>
-                <option value="2">Fácil</option>
-                <option value="1">Muito fácil</option>
-            </select>
-        </div>
-        <div>
-            <span>Educação Fisica</span>
-            <select data-materia="Educação_fisica">
-                <option value="5">Muito difícil</option>
-                <option value="4">Difícil</option>
-                <option value="3" selected>Médio</option>
-                <option value="2">Fácil</option>
-                <option value="1">Muito fácil</option>
-            </select>
-        </div>
-        </div>
-    <!-- </div> -->
-
-
-        <label for="horas">Quantas horas por semana você pode estudar?</label>
-        <input type="number" id="horas" min="1" placeholder="Ex: 20" required>
-
-        <button class="mandar" type="submit">Gerar Cronograma</button>
-    </form>
-
-    <div class="resultado" id="resultado" style="display:none;">
-        <h2> Seu Cronograma</h2>
-        <ul id="listaResultado"></ul>
-        <div class="acoes">
-            <button>Adicionar ao Cronograma Semanal</button>
-            <button>Transformar em Missão Semanal</button>
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Desenvolvido com <i class="fas fa-heart"></i> para seu sucesso acadêmico</p>
+    </footer>
 
     <script src="../JS/cronograma.js"></script>
 </body>
 
 </html>
+

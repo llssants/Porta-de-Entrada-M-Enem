@@ -1,56 +1,71 @@
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #fff1f1;
-  color: #fff;
-  display: flex;
-  height: 100vh;
 
+:root {
+    --primary: #940000; /* Vermelho principal */
+    --primary-dark: #7a0000; /* Vermelho mais escuro */
+    --primary-light: #ffcccc; /* Vermelho mais claro */
+    --bg-light: #f0f2f5; /* Fundo neutro */
+    --bg-dark: #ffffff; /* Fundo para cards e sidebar */
+    --text-dark: #333; /* Cor de texto escura */
+    --text-light: #ffffff; /* Cor de texto clara */
 }
 
 * {
-     box-sizing: border-box;
-     margin: 0;
-     padding: 0;
- }
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif; /* Usando a mesma fonte do projeto principal */
+}
 
- 
- .sidebar {
-    height: 100vh;
-     background: var(--bg-dark);
-     background-color: #b71c1c;
-     color:#ffffff;
-     padding: 20px;
-     display: flex;
-     flex-direction: column;
-     justify-content: space-between;
-     margin-right: 20vh;
- }
+body {
+    background: var(--bg-light);
+    color: var(--text-dark);
+    display: flex;
+    min-height: 100vh;
+}
 
- .sidebar h1 {
-     font-size: 20px;
-     margin-bottom: 20px;
-     color: var(--primary-light);
- }
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background: var(--primary); /* Sidebar em vermelho principal */
+    color: var(--text-light);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Sombra sutil na sidebar */
+}
 
- .menua {
-     display: block;
-     padding: 10px;
-     margin: 5px 0;
-     text-decoration: none;
-     color: var(--text-light);
-     border-radius: 8px;
- }
+.sidebar h1 {
+    font-size: 24px; /* Aumentado o tamanho do título */
+    margin-bottom: 30px; /* Aumentado o espaçamento */
+    color: var(--text-light);
+    font-weight: 700;
+}
 
+.menu {
+    flex-grow: 1; /* Permite que o menu ocupe o espaço disponível */
+}
 
- .menua:hover {
-  background-color: #d62a2a;
-  border-radius: 0px;
- }
+.menua {
+    display: block;
+    padding: 12px 15px; /* Aumentado o padding */
+    margin: 8px 0;
+    text-decoration: none;
+    color: var(--text-light);
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-weight: 500;
+}
+
+.menua:hover,
+.menua.active {
+    background: var(--primary-dark); /* Vermelho mais escuro no hover/ativo */
+    color: var(--text-light);
+}
 
 .logo {
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: 10px;
 }
 
@@ -60,18 +75,16 @@ body {
 }
 
 .logo p {
-    margin-top: 30px;
-    font-size: 18px;
+    margin: 0;
+    font-size: 22px;
     font-weight: bold;
     color: #ffffff;
 }
 
-
 .logar {
-    width: 40%;
+    width: 30px;
     height: auto;
     color: #f2f2f2;
-
 }
 
 .menu-icon {
@@ -79,184 +92,326 @@ body {
 }
 
 h2 {
-    font: 2em sans-serif;
-    margin: 2px;
+    font-size: 2.5em; /* Aumentado o tamanho dos títulos */
+    margin: 10vh 0 5vh; /* Ajustado o espaçamento dos títulos */
+    color: var(--primary); /* Títulos em vermelho */
+    font-weight: 700;
 }
 
 .regras {
-  display: block;
-  padding: 10px;
-  margin: 5px 0;
-  text-decoration: none;
-  color: var(--text-light);
-  border-radius: 8px;
-  background-color: #d62a2a;
+    background-color: var(--primary-dark); /* Cor de fundo para o item de regras */
+    border-radius: 8px;
+    padding: 10px;
+    margin: 5px 0;
+    color: var(--text-light);
+    text-decoration: none;
+    display: block;
 }
 
-
-strong{
-  background-color: #d62a2a;
+strong {
+    background-color: transparent; /* Removido background-color do strong */
+    color: inherit; /* Herda a cor do pai */
 }
 
 /* Container principal: sidebar + conteúdo */
 .container {
-  display: flex;
+    display: flex;
+    flex: 1;
 }
 
-h1{
-    margin: 3.5vh;
-    color: #b71c1c;
-    text-align: left;
+h1 {
+    margin: 30px 0; /* Ajustado o espaçamento */
+    color: var(--primary); /* Título em vermelho */
+    text-align: center; /* Centralizado */
+    font-size: 2.8em;
+    font-weight: 700;
 }
-
 
 .cards-container {
-  display: grid;
-  grid-template-columns: repeat(3, 2fr);
-  gap: 20px;
-  max-width: 150vh;
-  /* margin: 4vh; */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Layout responsivo com cards maiores */
+    gap: 30px; /* Aumentado o espaçamento */
+    max-width: 1200px;
+    margin: 0 auto; /* Centraliza o container de cards */
+    padding: 30px;
 }
 
 /* texto */
 .card {
-  margin: 1.3vh;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 0 15px rgba(146, 36, 36, 0.6);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  height: 120vh;
+    background: var(--bg-dark);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Sombra mais suave e pronunciada */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    height: auto; /* Altura automática para o card */
+}
+
+.card:hover {
+    transform: translateY(-10px); /* Efeito de levantar no hover */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25); /* Sombra mais forte no hover */
 }
 
 .card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
+    width: 100%;
+    height: 220px; /* Altura fixa para a imagem */
+    object-fit: cover;
 }
 
 /* texto */
 .card-content {
-  flex: 1;
-  padding: 20px;
-  background: #be1d1d;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+    flex: 1;
+    padding: 25px; /* Aumentado o padding */
+    background: var(--primary); /* Fundo do conteúdo do card em vermelho */
+    color: var(--text-light);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 .card-content h2 {
-  font-size: 20px;
-  margin-bottom: 10px;
-  color: #ffffff;
+    font-size: 1.8em; /* Aumentado o tamanho do título */
+    margin-bottom: 15px; /* Aumentado o espaçamento */
+    color: #ffffff;
+    font-weight: 600;
 }
 
-@media screen and (max-width: 900px) {
-  .cards-container {
-    grid-template-columns: 1fr;
-    max-width: 100%;
-  }
+.card-content p {
+    font-size: 1.1em;
+    line-height: 1.6;
 }
-
-  .card {
-    height: auto;
-  }
 
 /* Modal geral */
 .modal {
-  display: none; /* escondido por padrão */
-  position: fixed;
-  z-index: 999;
-  left: 0; top: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.4); /* fundo escuro semitransparente */
-  align-items: center;
-  justify-content: center;
+    display: none; /* escondido por padrão */
+    position: fixed;
+    z-index: 999;
+    left: 0; top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6); /* fundo escuro semitransparente */
+    align-items: center;
+    justify-content: center;
 }
 
 /* Modal ativo */
 .modal.active {
-  display: flex; /* só aparece quando a classe active for adicionada */
+    display: flex; /* só aparece quando a classe active for adicionada */
 }
 
 /* Caixa centralizada */
 .modalcont {
-  background: #b71c1c; /* mesma cor do sidebar */
-  color: #fff;
-  padding: 30px 20px;
-  border-radius: 12px;
-  width: 350px;
-  max-width: 90%;
-  text-align: center;
-  box-shadow: 0 0 20px rgba(0,0,0,0.5);
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+    background: var(--primary-dark); /* Cor do modal em vermelho escuro */
+    color: #fff;
+    padding: 40px 30px; /* Aumentado o padding */
+    border-radius: 12px;
+    width: 400px; /* Aumentado a largura */
+    max-width: 90%;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(0,0,0,0.5); /* Sombra mais pronunciada */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Aumentado o espaçamento */
 }
 
 /* Input */
 .modalcont input {
-  padding: 10px;
-  border-radius: 8px;
-  border: none;
-  width: 100%;
-  font-size: 16px;
-  text-align: center;
+    padding: 12px; /* Aumentado o padding */
+    border-radius: 8px;
+    border: none;
+    width: 100%;
+    font-size: 1em;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.9); /* Fundo do input levemente transparente */
+    color: var(--text-dark);
 }
 
 /* Botão */
 .modalcont button {
-  padding: 10px 0;
-  border: none;
-  border-radius: 8px;
-  background-color: #d62a2a;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background 0.3s;
+    padding: 12px 0;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--primary); /* Botão em vermelho principal */
+    color: white;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-weight: 600;
 }
 
 .modalcont button:hover {
-  background-color: #f44336;
+    background-color: var(--primary-light); /* Vermelho mais claro no hover */
 }
 
 /* Feedback */
 #feedback {
-  margin-top: 5px;
-  font-weight: bold;
+    margin-top: 10px;
+    font-weight: bold;
+    color: var(--primary-light);
 }
 
 /* Fechar */
 .close {
-  position: absolute;
-  top: 10px; right: 15px;
-  font-size: 24px;
-  cursor: pointer;
-  color: #fff;
+    position: absolute;
+    top: 15px; right: 20px; /* Ajustado a posição */
+    font-size: 28px; /* Aumentado o tamanho */
+    cursor: pointer;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: var(--primary-light);
 }
 
 /* Easter egg icon */
 .egg {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  cursor: pointer;
-  z-index: 1000;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 1000;
 }
 
 .egg img {
-  width: 50px; /* tamanho fixo */
-  height: 50px;
-  object-fit: contain; /* mantém proporção */
-  opacity: 0.8;
-  transition: transform 0.3s, opacity 0.3s;
+    width: 60px; /* Aumentado o tamanho */
+    height: 60px;
+    object-fit: contain;
+    opacity: 0.9;
+    transition: transform 0.3s, opacity 0.3s;
 }
 
 .egg img:hover {
-  transform: scale(1.1);
-  opacity: 1;
+    transform: scale(1.15);
+    opacity: 1;
 }
+
+/* Responsividade */
+@media (max-width: 992px) {
+    .sidebar {
+        width: 200px;
+    }
+
+    .cards-container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .card img {
+        height: 180px;
+    }
+
+    .card-content h2 {
+        font-size: 1.6em;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        overflow-x: auto;
+        padding: 15px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .sidebar h1 {
+        display: none;
+    }
+
+    .menu {
+        flex-direction: row;
+        gap: 10px;
+        margin-top: 0;
+    }
+
+    .menua {
+        padding: 8px 12px;
+        font-size: 0.9em;
+        white-space: nowrap;
+    }
+
+    h1 {
+        font-size: 2.2em;
+        margin: 20px 0;
+    }
+
+    .cards-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 15px;
+    }
+
+    .card {
+        height: auto;
+    }
+
+    .card img {
+        height: 200px;
+    }
+
+    .card-content {
+        padding: 20px;
+    }
+
+    .card-content h2 {
+        font-size: 1.5em;
+    }
+
+    .modalcont {
+        padding: 30px 20px;
+        gap: 15px;
+    }
+
+    .modalcont input {
+        padding: 10px;
+    }
+
+    .modalcont button {
+        padding: 10px 0;
+        font-size: 1em;
+    }
+
+    .close {
+        font-size: 24px;
+        top: 10px; right: 15px;
+    }
+
+    .egg img {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        padding: 10px;
+    }
+
+    .menua {
+        padding: 6px 10px;
+        font-size: 0.8em;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .cards-container {
+        padding: 10px;
+    }
+
+    .card-content h2 {
+        font-size: 1.3em;
+    }
+}
+
