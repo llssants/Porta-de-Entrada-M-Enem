@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Filosofia – Tópicos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      margin: 20px;
+      color: #222;
+    }
+
+    h1.titulo {
+      border-left: 6px solid #8e44ad;
+      padding-left: 15px;
+      color: #5d3a70;
+      margin-bottom: 30px;
+      font-size: 2rem;
+    }
+
+    .categoria-box {
+      background-color: #e6d5f7;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 3px 7px rgba(142, 68, 173, 0.3);
+      margin-bottom: 30px;
+    }
+
+    .categoria-box h2 {
+      color: #6e49a6;
+      margin-bottom: 18px;
+      font-weight: 600;
+    }
+
+    .topico-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+    a.topico-card {
+      background-color: #c9b3f2;
+      padding: 12px;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.2s ease;
+      color: inherit;
+      text-decoration: none;
+      display: block;
+    }
+
+    a.topico-card:hover {
+      background-color: #a27fe6;
+      transform: translateY(-3px);
+    }
+
+    @media (max-width: 500px) {
+      a.topico-card {
+        font-size: 14px;
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1 class="titulo">Tópicos de Filosofia</h1>
+
+  <div class="categoria-box">
+    <h2>Filosofia</h2>
+    <div class="topico-grid">
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Origem da filosofia">Origem da filosofia</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Pré-Socráticos">Pré-Socráticos</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Sofistas, Sócrates e Platão">Sofistas, Sócrates e Platão</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Aristóteles">Aristóteles</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Filosofia Helenística">Filosofia Helenística</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Filosofia Medieval">Filosofia Medieval</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Filosofia Renascentista e Revolução científica">Filosofia Renascentista e Revolução científica</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Filosofia Moderna: Introdução">Filosofia Moderna: Introdução</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Filosofia Moderna: Racionalismo">Filosofia Moderna: Racionalismo</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Filosofia Moderna: Empirismo">Filosofia Moderna: Empirismo</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Filosofia Moderna: Iluminismo">Filosofia Moderna: Iluminismo</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Filosofia Moderna: Immanuel Kant">Filosofia Moderna: Immanuel Kant</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Idealismo Alemão">Idealismo Alemão</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Escola de Frankfurt">Escola de Frankfurt</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Existencialismo">Existencialismo</a>
+    </div>
+  </div>
+</body>
+</html>

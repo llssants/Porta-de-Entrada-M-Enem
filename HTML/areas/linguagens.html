@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Filtro por Disciplinas - Linguagens</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 30px;
+      font-family: 'Roboto', sans-serif;
+      background: #fff;
+      color: #333;
+    }
+    h2.titulo {
+      color: #004080;
+      border-left: 5px solid #0073e6;
+      padding-left: 15px;
+      margin-bottom: 30px;
+      font-size: 1.8rem;
+    }
+    .filtro-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 25px;
+    }
+    .filtro-card {
+      background: #e6f0ff; /* azul claro suave */
+      border-radius: 15px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+    }
+    .filtro-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 20px rgba(0, 115, 230, 0.2);
+    }
+    .filtro-card .icon {
+      font-size: 50px;
+      margin: 30px 0 10px;
+    }
+    .filtro-card .nome {
+      background-color: #0073e6;
+      color: white;
+      width: 100%;
+      padding: 12px 0;
+      font-weight: bold;
+      font-size: 1.1rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    a:focus {
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h2 class="titulo">Linguagens</h2>
+
+  <div class="filtro-grid">
+
+    <a href="../../PHP/materias/portugues.html">
+      <div class="filtro-card">
+        <div class="icon">
+          <img src="https://img.icons8.com/?size=100&id=hGBTBdUownyO&format=png&color=000000" alt="Ícone de livro">
+        </div>
+        <div class="nome">Português</div>
+      </div>
+    </a>
+
+    <a href="../../PHP/materias/lingua_estrangeira.html">
+      <div class="filtro-card">
+        <div class="icon">
+          <img src="https://img.icons8.com/?size=100&id=NKDI7K3HfJE7&format=png&color=000000" alt="Ícone de livro">
+        </div>
+        <div class="nome">Linguas Estrangeiras</div>
+      </div>
+    </a>
+
+    <a href="../../PHP/materias/artes.html">
+      <div class="filtro-card">
+        <div class="icon">
+          <img src="https://img.icons8.com/?size=100&id=SRbGfITMZVS9&format=png&color=000000" alt="Ícone de livro">
+        </div>
+        <div class="nome">Artes e Ed.Fisica</div>
+      </div>
+    </a>
+
+    <a href="../../PHP/materias/literatura.html">
+      <div class="filtro-card">
+        <div class="icon">
+          <img src="https://img.icons8.com/?size=100&id=HWuNx7vHRTcW&format=png&color=000000" alt="Ícone de livro">
+        </div>
+        <div class="nome">Literatura</div>
+      </div>
+    </a>
+
+  </div>
+
+</body>
+</html>

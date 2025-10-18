@@ -1,134 +1,77 @@
-
 body {
-    margin: 0;
-    font-family: 'Roboto', sans-serif; /* Usando a mesma fonte do projeto principal */
-    background: #f8f8f8; /* Fundo neutro para contrastar com o vermelho */
-    color: #333;
-}
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #8B0000; /* vermelho escuro */
+      color: #fff;
+    }
 
-.section {
-    text-align: center;
-    padding: 80px 20px; /* Aumentado o padding das seções */
-    background-color: #940000; /* Fundo vermelho para a seção */
-    color: white;
-}
-
-.section h2 {
-    font-size: 2.8em; /* Aumentado o tamanho do título */
-    margin-bottom: 50px; /* Aumentado o espaçamento */
-    font-weight: 700;
-    text-transform: uppercase;
-    color: #ffffff;
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Sombra para o título */
-}
-
-.cards {
-    display: flex;
-    justify-content: center;
-    gap: 40px; /* Aumentado o espaçamento entre os cards */
-    flex-wrap: wrap;
-}
-
-.card {
-    background: #ffffff; /* Fundo branco para os cards */
-    width: 280px; /* Aumentado a largura dos cards */
-    height: 420px; /* Aumentado a altura dos cards */
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Sombra mais suave e pronunciada */
-    position: relative;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-}
-
-.card:hover {
-    transform: translateY(-10px); /* Efeito de levantar no hover */
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3); /* Sombra mais forte no hover */
-}
-
-.card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.9; /* Levemente mais opaco */
-    transition: opacity 0.3s ease;
-}
-
-.card:hover img {
-    opacity: 1; /* Imagem totalmente opaca no hover */
-}
-
-.card-title {
-    position: absolute;
-    bottom: 25px; /* Ajustado a posição do título */
-    left: 0;
-    right: 0;
-    color: #fff;
-    font-size: 1.4em; /* Aumentado o tamanho da fonte do título */
-    font-weight: bold;
-    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.7); /* Sombra mais forte para o texto */
-    background-color: rgba(148, 0, 0, 0.7); /* Fundo semi-transparente para o título */
-    padding: 10px 0;
-}
-
-footer {
-    margin-top: 80px; /* Aumentado o espaçamento */
-    text-align: center;
-    font-size: 1em;
-    color: #666; /* Cor mais suave para o texto do rodapé */
-    padding: 30px 0;
-    background-color: #333; /* Fundo escuro para o rodapé */
-    color: white;
-}
-
-footer .icons {
-    margin: 20px 0;
-}
-
-footer .icons i {
-    margin: 0 15px; /* Aumentado o espaçamento entre os ícones */
-    font-size: 28px; /* Ícones maiores */
-    cursor: pointer;
-    color: #940000; /* Ícones em vermelho */
-    transition: color 0.3s ease;
-}
-
-footer .icons i:hover {
-    color: #ffcccc; /* Vermelho mais claro no hover */
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
     .section {
-        padding: 60px 15px;
+      text-align: center;
+      padding: 50px 20px;
     }
 
     .section h2 {
-        font-size: 2.2em;
-        margin-bottom: 40px;
+      font-size: 2em;
+      margin-bottom: 40px;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #fff;
     }
 
     .cards {
-        gap: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
     }
 
     .card {
-        width: 250px;
-        height: 380px;
+      background: #000;
+      width: 250px;
+      height: 380px;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+      position: relative;
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.8;
     }
 
     .card-title {
-        font-size: 1.2em;
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #fff;
+      font-size: 1.2em;
+      font-weight: bold;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
     }
 
     footer {
-        margin-top: 60px;
-        padding: 20px 0;
+      margin-top: 50px;
+      text-align: center;
+      font-size: 0.9em;
+      color: #eee;
+    }
+
+    footer .icons {
+      margin: 10px 0;
     }
 
     footer .icons i {
-        font-size: 24px;
-        margin: 0 10px;
+      margin: 0 10px;
+      font-size: 24px;
+      cursor: pointer;
     }
-}
-

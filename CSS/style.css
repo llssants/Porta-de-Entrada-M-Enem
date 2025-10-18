@@ -1,45 +1,34 @@
-
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #f8f8f8;
 }
 
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #940000; /* Vermelho principal */
+    background: #940000;
     color: white;
-    padding: 10px 40px; /* Aumentado o padding para melhor espaçamento */
+    padding: 10px 20px;
     height: 10vh;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Adicionado sombra para profundidade */
 }
 
 .navbar ul {
     list-style: none;
     display: flex;
-    gap: 25px; /* Aumentado o espaçamento entre os itens do menu */
-    margin-top: 0; /* Removido margin-top desnecessário */
-    padding: 0;
+    gap: 15px;
+    margin-top:30px ;
 }
 
 .navbar a {
     color: white;
     text-decoration: none;
-    font-weight: 500; /* Texto do menu um pouco mais encorpado */
-    transition: color 0.3s ease; /* Transição suave para hover */
-}
-
-.navbar a:hover {
-    color: #ffcccc; /* Vermelho mais claro no hover */
 }
 
 .logo {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
 }
 
@@ -49,114 +38,110 @@ body {
 }
 
 .logo p {
-    margin: 0; /* Removido margin-top desnecessário */
-    font-size: 22px; /* Aumentado o tamanho da fonte do logo */
+    margin-top: 30px;
+    font-size: 18px;
     font-weight: bold;
     color: #ffffff;
 }
 
+
 .logar {
-    width: 30px; /* Ajustado o tamanho do ícone de login */
+    width: 40%;
     height: auto;
     color: #f2f2f2;
+
 }
 
 .menu-icon {
     display: none;
-    font-size: 28px;
-    cursor: pointer;
 }
 
 h2 {
-    font-size: 2.5em; /* Aumentado o tamanho dos títulos */
-    margin: 10vh 0 5vh; /* Ajustado o espaçamento dos títulos */
-    color: #940000; /* Títulos em vermelho */
-    font-weight: 700;
+    font: 2em sans-serif;
+    margin: 18vh 0;
 }
 
 /* Banner */
 .img-banner {
-    width: 100%; /* Ocupa a largura total do banner */
-    max-height: 70vh; /* Altura máxima para o banner */
-    object-fit: cover; /* Garante que a imagem cubra a área sem distorcer */
+    width: 85vw;
+    height: 78vh;
+    display: flex;
 }
 
 .banner {
-    height: auto; /* Altura ajustável */
+    height: 75vh;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
     text-align: center;
     font-weight: bold;
-    padding: 0; /* Removido padding desnecessário */
-    background-color: #f8f8f8; /* Fundo do banner para caso a imagem não carregue */
+    padding: 20px;
 }
 
 /* Seções */
 .section {
-    padding: 60px 20px; /* Aumentado o padding das seções */
+    padding: 20px;
     text-align: center;
 }
 
 .red {
-    background: #940000; /* Vermelho principal */
+    background: #940000;
     color: white;
 }
 
 .grid-2 {
     display: flex;
-    align-items: center; /* Alinhamento centralizado */
-    gap: 50px; /* Aumentado o espaçamento entre os itens */
-    padding: 40px 0;
-    flex-wrap: wrap; /* Permite que os itens quebrem a linha em telas menores */
-    justify-content: center; /* Centraliza os itens */
-    max-width: 1200px;
-    margin: 0 auto;
+    align-items: flex-start;
+    gap: 30px;
+    padding: 20px 0;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
 }
 
 .box-img1 {
-    flex: 1; /* Permite que o texto ocupe o espaço disponível */
-    min-width: 300px; /* Largura mínima para o texto */
+    margin-left: 3%;
+    flex: 0 0 55%;
     text-align: justify;
-    font-size: 1.15rem; /* Aumentado o tamanho da fonte do texto */
-    line-height: 1.8; /* Aumentado o espaçamento entre linhas */
-    padding: 0 20px;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    order: 1;
 }
 
 .grid-2 img {
-    flex: 1; /* Permite que a imagem ocupe o espaço disponível */
-    min-width: 300px; /* Largura mínima para a imagem */
-    max-width: 500px; /* Largura máxima para a imagem */
+    flex: 0 0 40%;
+    max-width: 40%;
     height: auto;
-    border-radius: 10px; /* Bordas mais arredondadas */
+    border-radius: 8px;
     object-fit: cover;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra para a imagem */
+    order: 2;
 }
 
 .box-img1 p {
-    margin: 0;
+    margin: 0 15%;
 }
 
 .carousel-container {
     position: relative;
     display: flex;
     align-items: center;
-    width: 100%; /* Ocupa a largura total */
-    max-width: 1200px; /* Largura máxima para o carrossel */
-    margin: 0 auto; /* Centraliza o carrossel */
+    width: 100vw;
+    /* ocupa toda a largura da tela */
+    max-width: 100%;
     box-sizing: border-box;
-    padding: 0 60px; /* Espaço para os botões */
+    padding: 0 40px;
+    /* espaço para os botões */
+    gap: 10px;
 }
 
 .grid-3 {
     display: flex;
-    overflow-x: hidden; /* Esconde a barra de rolagem, mas permite rolagem por JS */
-    gap: 20px; /* Aumentado o espaçamento entre os itens */
-    padding: 20px 0;
+    overflow-x: auto;
+    gap: 15px;
+    padding: 10px 0;
     scroll-behavior: smooth;
     flex-grow: 1;
-    justify-content: flex-start; /* Alinha os itens à esquerda */
+    /* ocupa o máximo possível */
 }
 
 /* Remove scrollbar padrão */
@@ -170,18 +155,17 @@ h2 {
 }
 
 .box-img {
-    flex: 0 0 220px; /* Tamanho fixo para os itens do carrossel */
-    height: 220px;
-    background-color: #c1cdd5; /* Cor de fundo padrão */
+    flex: 0 0 auto;
+    width: 200px;
+    height: 200px;
+    background-color: #c1cdd5;
     border-radius: 50%;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Adicionado transição para sombra */
+    transition: transform 0.3s ease;
     cursor: pointer;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1); /* Sombra para os itens */
 }
 
 .box-img:hover {
-    transform: scale(1.05); /* Aumenta um pouco menos no hover */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Sombra mais pronunciada no hover */
+    transform: scale(1.2);
 }
 
 .btn {
@@ -191,20 +175,20 @@ h2 {
     background-color: white;
     border: none;
     border-radius: 50%;
-    width: 45px; /* Botões maiores */
-    height: 45px;
-    font-size: 24px; /* Ícone maior */
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
     cursor: pointer;
     user-select: none;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra para os botões */
-    color: #940000; /* Cor do texto do botão em vermelho */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Transição suave */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    color: #f44336;
+    transition: background-color 0.3s ease;
     z-index: 10;
 }
 
 .btn:hover {
-    background-color: #940000; /* Fundo vermelho no hover */
-    color: white; /* Texto branco no hover */
+    background-color: #f44336;
+    color: white;
 }
 
 .btn.prev {
@@ -219,177 +203,110 @@ h2 {
     display: flex;
     justify-content: center;
     width: 100%;
-    margin: 40px auto; /* Aumentado o espaçamento */
+    margin: 20px auto;
 }
 
 .video-box iframe {
     aspect-ratio: 16 / 9;
-    width: 70%; /* Aumentado a largura do vídeo */
-    max-width: 800px; /* Largura máxima para o vídeo */
+    width: 50%;
     height: auto;
     border: none;
-    border-radius: 10px; /* Bordas arredondadas para o vídeo */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra para o vídeo */
 }
 .video-h2{
     margin: 0;
-    margin-top: 10vh; /* Ajustado o espaçamento */
+    margin-top: 18vh;
 }
 
 /* Rodapé */
 .footer {
-    padding: 40px 0; /* Aumentado o padding do rodapé */
-    font-family: 'Roboto', sans-serif;
-    color: #eee;
-    background-color: #333; /* Fundo escuro para o rodapé */
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: #333;
+
 }
 
 .footer-top {
-    height: auto; /* Altura ajustável */
-    background-color: #940000; /* Vermelho principal */
-    padding: 20px 0;
+    height: 9vh;
+    background-color: #EAEAEA;
 }
 
 .footer-top h2 {
     font-weight: bold;
-    font-size: 28px; /* Aumentado o tamanho da fonte */
-    margin: 0;
-    color: white;
+    font-size: 24px;
+    margin: 0 0 20px 0;
+    padding: 20px 30px;
+
 }
 
 .footer-main {
-    background-color: #333; /* Fundo escuro */
+    background-color: whitesmoke;
     display: flex;
-    justify-content: space-around; /* Espaçamento uniforme */
+    justify-content: space-between;
     flex-wrap: wrap;
-    padding: 40px 30px;
-    color: white;
+    padding: 20px 30px;
 }
 
 .footer-left h3 {
-    font-weight: 500;
-    margin-bottom: 20px;
-    font-size: 1.5em;
+    font-weight: normal;
+    margin-bottom: 10px;
+
 }
 .footer-left{
-    margin: 0;
-    text-align: left;
+    margin: 0 20px;
+
 }
 .social-icons {
-    margin-top: 20px;
+    margin-top: 40px;
 }
 
 .social-icons a {
     text-decoration: none;
-    color: white; /* Ícones sociais brancos */
-    margin-right: 20px; /* Aumentado o espaçamento */
-    font-size: 24px; /* Ícones maiores */
+    color: #333;
+    margin-right: 15px;
+    font-size: 20px;
     transition: color 0.3s ease;
 }
 
 .social-icons a:hover {
-    color: #ffcccc; /* Vermelho mais claro no hover */
+    color: #0073e6;
 }
 
 .footer-right ul {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 0 50px;
     text-align: left;
 }
 
 .footer-right ul li:first-child {
     font-weight: bold;
-    margin-bottom: 15px;
-    font-size: 1.2em;
+    margin-bottom: 10px;
 }
 
 .footer-right ul li {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
+}
+
+
+.social a,
+.links a {
+    margin: 0 5px;
+    text-decoration: none;
+    color: black;
 }
 
 /* Responsivo */
 @media (max-width: 768px) {
-    .navbar {
-        padding: 10px 20px;
-    }
     .navbar ul {
         display: none;
     }
 
     .menu-icon {
         display: block;
-        color: white;
     }
 
-    h2 {
-        font-size: 2em;
-        margin: 5vh 0 3vh;
-    }
-
-    .grid-2 {
-        flex-direction: column; /* Empilha os itens em telas menores */
-        gap: 30px;
-        padding: 20px 0;
-    }
-
-    .box-img1, .grid-2 img {
-        min-width: unset;
-        max-width: 90%;
-        margin: 0 auto;
-    }
-
-    .box-img1 p {
-        padding: 0 10px;
-    }
-
-    .carousel-container {
-        padding: 0 20px;
-    }
-
+    .grid-2,
     .grid-3 {
-        gap: 15px;
-        padding: 10px 0;
-    }
-
-    .box-img {
-        flex: 0 0 180px;
-        height: 180px;
-    }
-
-    .btn {
-        width: 35px;
-        height: 35px;
-        font-size: 20px;
-    }
-
-    .video-box iframe {
-        width: 90%;
-    }
-
-    .footer-main {
-        flex-direction: column;
-        text-align: center;
-        padding: 30px 20px;
-    }
-
-    .footer-left, .footer-right {
-        margin: 0;
-        width: 100%;
-    }
-
-    .footer-left h3, .footer-right ul {
-        text-align: center;
-    }
-
-    .social-icons {
-        margin-top: 15px;
-        display: flex;
-        justify-content: center;
-    }
-
-    .social-icons a {
-        margin: 0 10px;
+        grid-template-columns: 1fr;
     }
 }
-

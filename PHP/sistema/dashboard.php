@@ -103,7 +103,7 @@ $mensagemMotivacional = $mensagens[array_rand($mensagens)];
     <h2 class="title">Porta de entrada</h2>
     <nav>
         <a href="../../HTML/metodos.html">Métodos de Estudo</a>
-        <a href="../teste.html">Game Start</a>
+        <a href="../../HTML/questao/game.html">Game Start</a>
         <a href="#">Simulados</a>
 
        <div class="menu-perfil">

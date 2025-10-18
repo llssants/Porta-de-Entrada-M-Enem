@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Física – Tópicos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f8ff;
+      color: #222;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1.titulo {
+      color: #004080;
+      border-left: 5px solid #3399ff;
+      padding-left: 15px;
+      margin-bottom: 40px;
+    }
+
+    .categoria-box {
+      background-color: #e6f0ff;
+      border: 1px solid #b3d1ff;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 6px rgba(51, 153, 255, 0.2);
+    }
+
+    .categoria-box h2 {
+      color: #0066cc;
+      margin-bottom: 15px;
+    }
+
+    .topico-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+      margin-top: 10px;
+    }
+    a.topico-card {
+      background-color: #cce0ff;
+      padding: 12px;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.2s ease;
+      color: inherit;
+      text-decoration: none;
+      display: block;
+    }
+
+    a.topico-card:hover {
+      background-color: #99c2ff;
+      transform: translateY(-3px);
+    }
+
+    @media (max-width: 500px) {
+      a.topico-card {
+        font-size: 14px;
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1 class="titulo">Tópicos de Física</h1>
+
+  <div class="categoria-box">
+    <h2>Física 1</h2>
+    <div class="topico-grid">
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Vetores">Vetores</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Ordem de grandeza">Ordem de grandeza</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Sistemas de unidades">Sistemas de unidades</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Movimento uniforme">Movimento uniforme</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Movimento variado">Movimento variado</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Lançamento vertical e Queda livre">Lançamento vertical e Queda livre</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Lançamento horizontal">Lançamento horizontal</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Lançamento oblíquo">Lançamento oblíquo</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Movimento circular">Movimento circular</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Leis de Newton">Leis de Newton</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Máquinas simples (polias)">Máquinas simples (polias)</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Força elástica">Força elástica</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Força de atrito">Força de atrito</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Estática de um ponto material">Estática de um ponto material</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Estática de um corpo extenso e Centro de massa">Estática de um corpo extenso e Centro de massa</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Dinâmica do movimento circular">Dinâmica do movimento circular</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Trabalho">Trabalho</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Energia mecânica, potência e rendimento">Energia mecânica, potência e rendimento</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Impulso e quantidade de movimento">Impulso e quantidade de movimento</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Colisões">Colisões</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Movimento harmônico simples (MHS): Movimentos periódicos">Movimento harmônico simples (MHS): Movimentos periódicos</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Movimento Harmônico Simples (MHS): Cinemática do MHS">Movimento Harmônico Simples (MHS): Cinemática do MHS</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Movimento harmônico simples (MHS): Sistema massa-mola e Pêndulo simples">Movimento harmônico simples (MHS): Sistema massa-mola e Pêndulo simples</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Leis de Kepler">Leis de Kepler</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Lei da Gravitação Universal">Lei da Gravitação Universal</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Velocidade orbital e Velocidade de escape">Velocidade orbital e Velocidade de escape</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Densidade, pressão e Teorema de Stevin">Densidade, pressão e Teorema de Stevin</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Experiência de Torricelli, Teorema de Pascal, Prensa hidráulica">Experiência de Torricelli, Teorema de Pascal, Prensa hidráulica</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Princípio de Arquimedes">Princípio de Arquimedes</a>
+    </div>
+  </div>
+
+  <div class="categoria-box">
+    <h2>Física 2</h2>
+    <div class="topico-grid">
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Luz e Câmara de orifício">Luz e Câmara de orifício</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Princípios da óptica geométrica">Princípios da óptica geométrica</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Espelhos planos">Espelhos planos</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Espelhos esféricos">Espelhos esféricos</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Determinação analítica da imagem">Determinação analítica da imagem</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Refração">Refração</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Dioptro plano, Ângulo limite e Reflexão total">Dioptro plano, Ângulo limite e Reflexão total</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Prismas">Prismas</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Lentes esféricas">Lentes esféricas</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Construção analítica das imagens e Estudo dos sinais">Construção analítica das imagens e Estudo dos sinais</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Vergência e Óptica da Visão">Vergência e Óptica da Visão</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Instrumentos ópticos">Instrumentos ópticos</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Ondulatória: Visão geral e Equação fundamental">Ondulatória: Visão geral e Equação fundamental</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Fenômenos ondulatórios">Fenômenos ondulatórios</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Ondas estacionárias em cordas e tubos sonoros">Ondas estacionárias em cordas e tubos sonoros</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Acústica, fenômenos sonoros e instrumentos musicais">Acústica, fenômenos sonoros e instrumentos musicais</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Efeito doppler">Efeito doppler</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Temperatura, Calor e Energia térmica">Temperatura, Calor e Energia térmica</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Escalas termométricas">Escalas termométricas</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Dilatação térmica">Dilatação térmica</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Calor sensível">Calor sensível</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Calor latente e Mudança de fase">Calor latente e Mudança de fase</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Diagramas de fase">Diagramas de fase</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Propagação do calor">Propagação do calor</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Estudo do gás ideal">Estudo do gás ideal</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Cinética dos gases, Energia interna e Trabalho de um gás">Cinética dos gases, Energia interna e Trabalho de um gás</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Primeira lei da termodinâmica">Primeira lei da termodinâmica</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Ciclos, Máquinas térmicas e Rendimento">Ciclos, Máquinas térmicas e Rendimento</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Ciclo de Carnot e a Segunda lei da termodinâmica">Ciclo de Carnot e a Segunda lei da termodinâmica</a>
+    </div>
+  </div>
+
+  <div class="categoria-box">
+    <h2>Física 3</h2>
+    <div class="topico-grid">
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Carga elétrica">Carga elétrica</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Processos de eletrização">Processos de eletrização</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Força elétrica (Lei de Coulomb)">Força elétrica (Lei de Coulomb)</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Campo elétrico e Linhas de força">Campo elétrico e Linhas de força</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Potencial elétrico, Trabalho e Energia">Potencial elétrico, Trabalho e Energia</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Condutor esférico e Capacitância">Condutor esférico e Capacitância</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Corrente e Potência elétrica">Corrente e Potência elétrica</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Leis de Ohm">Leis de Ohm</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Associação de Resistores">Associação de Resistores</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Leis de Kirchhoff e Ponte de Wheatstone">Leis de Kirchhoff e Ponte de Wheatstone</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Geradores elétricos">Geradores elétricos</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Receptores elétricos">Receptores elétricos</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Capacitores">Capacitores</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Eletromagnetismo: Visão geral, Imã e Regra da mão direita">Eletromagnetismo: Visão geral, Imã e Regra da mão direita</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Campo magnético">Campo magnético</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Força Magnética e regra da mão esquerda">Força Magnética e regra da mão esquerda</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Indução Eletromagnética (Lei de Lenz)">Indução Eletromagnética (Lei de Lenz)</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Lei de Faraday e Variação do fluxo magnético">Lei de Faraday e Variação do fluxo magnético</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Gerador de corrente alternada e Transformadores">Gerador de corrente alternada e Transformadores</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Efeito fotoelétrico">Efeito fotoelétrico</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Teoria da relatividade">Teoria da relatividade</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Física quântica">Física quântica</a>
+    </div>
+  </div>
+
+</body>
+</html>
