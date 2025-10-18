@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Português – Tópicos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1.titulo {
+      color: #8B0000;
+      border-left: 5px solid #DC143C;
+      padding-left: 15px;
+      margin-bottom: 40px;
+    }
+
+    h2.titulo {
+      color: #8B0000;
+      border-left: 5px solid #DC143C;
+      padding-left: 15px;
+      margin: 30px 0 20px;
+    }
+
+    .categoria-box {
+      background-color: #ffffff;
+      border: 1px solid #e0e0e0;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .topico-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .topico-card {
+      background-color: #fff5f5;
+      padding: 12px;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.2s ease;
+      color: #333;
+      text-decoration: none;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .topico-card:hover {
+      background-color: #ffe5e5;
+      transform: translateY(-3px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (max-width: 500px) {
+      .topico-card {
+        font-size: 14px;
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1 class="titulo">Tópicos de Português</h1>
+
+  <!-- Estilística -->
+  <div class="categoria-box">
+    <h2 class="titulo">Estilística</h2>
+    <div class="topico-grid">
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Construção e Efeito de Sentido">Construção e Efeito de Sentido</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Figuras de Linguagem">Figuras de Linguagem</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Figuras de Linguagem II">Figuras de Linguagem II</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Funções da Linguagem">Funções da Linguagem</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Funções da Linguagem II">Funções da Linguagem II</a>
+    </div>
+  </div>
+
+  <!-- Escrita -->
+  <div class="categoria-box">
+    <h2 class="titulo">Escrita</h2>
+    <div class="topico-grid">
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Acentuação Gráfica">Acentuação Gráfica</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Crase">Crase</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Sinais de Pontuação">Sinais de Pontuação</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Uso da Vírgula">Uso da Vírgula</a>
+    </div>
+  </div>
+
+  <!-- Morfologia -->
+  <div class="categoria-box">
+    <h2 class="titulo">Morfologia</h2>
+    <div class="topico-grid">
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Adjetivos">Adjetivos</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Artigo">Artigo</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Conjunção">Conjunção</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Interjeição">Interjeição</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Numeral">Numeral</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Preposição">Preposição</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Pronomes">Pronomes</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Substantivos">Substantivos</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Verbos">Verbos</a>
+    </div>
+  </div>
+
+  <!-- Tipologia Textual -->
+  <div class="categoria-box">
+    <h2 class="titulo">Tipologia Textual</h2>
+    <div class="topico-grid">
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Crônica">Crônica</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Artigo de Opinião">Artigo de Opinião</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Diário">Diário</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Reportagem">Reportagem</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Texto Argumentativo">Texto Argumentativo</a>
+    </div>
+  </div>
+
+  <!-- Sintaxe -->
+  <div class="categoria-box">
+    <h2 class="titulo">Sintaxe</h2>
+    <div class="topico-grid">
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Concordância Nominal">Concordância Nominal</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Concordância Verbal e Nominal">Concordância Verbal e Nominal</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Concordância Verbal">Concordância Verbal</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Regência Nominal">Regência Nominal</a>
+      <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Regência Verbal">Regência Verbal</a>
+    </div>
+  </div>
+
+</body>
+</html>

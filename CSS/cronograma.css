@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #ee2d2d, #d63636, #ce2121ef);
+    background-size: 400% 400%;
+    animation: bgAnim 10s ease infinite;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+@keyframes bgAnim {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+h1 {
+    font-size: 2.2rem;
+   padding: ;
+    color: #ffffff;
+    text-shadow: 0 0 10px #400e08;
+}
+
+/* Formulário */
+form {
+    background: #b80606ce;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px #b6210777;
+    width: 100%;
+    max-width: 120vh;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Disciplinas organizadas em 3 linhas */
+#disciplinas {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* até 5 colunas */
+    gap: 20px; /* espaçamento entre os itens */
+    margin-top: 15px;
+}
+
+#disciplinas div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px #ff4d4d33;
+}
+
+
+
+label {
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+select,
+input[type="number"] {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    background: #a72020;
+    color: #ffffff;
+    outline: none;
+    transition: 0.3s;
+}
+
+select:hover,
+input:hover,
+select:focus,
+input:focus {
+    background: #7a0d0d;
+    /* vermelho mais intenso */
+    box-shadow: 0 0 8px #ff4d4d;
+    /* brilho vermelho */
+}
+
+/* Disciplinas */
+#disciplinas>div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.mandar{
+    width: 50vh;
+    align-self: center;
+}
+
+/* Botão */
+button {
+    background: linear-gradient(90deg, #b60903, #ff0000);
+    padding: 12px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 0 15px #b62107aa;
+    color: #fff;
+}
+
+button:hover {
+    background: linear-gradient(90deg, #d62828, #fd5000);
+    box-shadow: 0 0 15px #ff4d4d99;
+}
+
+
+/* Resultado */
+.resultado {
+    margin-top: 30px;
+    background: #630606;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px #ff4d4d55;
+    width: 100%;
+    max-width: 700px;
+}
+
+.resultado h2 {
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.resultado ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Ações extras */
+.acoes {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}

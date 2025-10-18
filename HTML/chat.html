@@ -1,0 +1,51 @@
+<?php
+$conn = new mysqli("localhost", "root", "", "chat_db");
+if ($conn->connect_error) {
+    die("Erro de conexão: " . $conn->connect_error);
+}
+?>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Chat Vermelho</title>
+    <link rel="stylesheet" href="../CSS/chat.css">
+</head>
+<body>
+
+<div class="chat-box">
+    <div class="messages" id="messages"></div>
+    <form id="chatForm">
+        <input type="text" name="usuario" placeholder="Seu nome" required>
+        <input type="text" name="mensagem" placeholder="Digite sua mensagem" required>
+        <button type="submit">Enviar</button>
+    </form>
+</div>
+
+<script>
+function carregarMensagens() {
+    fetch("load.php")
+        .then(res => res.text())
+        .then(html => {
+            document.getElementById("messages").innerHTML = html;
+            let msgBox = document.getElementById("messages");
+            msgBox.scrollTop = msgBox.scrollHeight;
+        });
+}
+
+document.getElementById("chatForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    let formData = new FormData(this);
+    fetch("send.php", { method: "POST", body: formData })
+        .then(() => {
+            this.mensagem.value = "";
+            carregarMensagens();
+        });
+});
+
+setInterval(carregarMensagens, 2000);
+carregarMensagens();
+</script>
+
+</body>
+</html>

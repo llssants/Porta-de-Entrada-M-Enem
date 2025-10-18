@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Sociologia – Tópicos</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            margin: 20px;
+            color: #222;
+        }
+
+        h1.titulo {
+            border-left: 6px solid #4a90e2;
+            padding-left: 15px;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+
+        .categoria-box {
+            background-color: #dbe9ff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 3px 7px rgba(74, 144, 226, 0.3);
+            margin-bottom: 30px;
+        }
+
+        .categoria-box h2 {
+            color: #2471a3;
+            margin-bottom: 18px;
+            font-weight: 600;
+        }
+
+        .topico-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 14px;
+        }
+
+        .topico-card {
+            background-color: #a9c9ff;
+            border-radius: 7px;
+            padding: 12px 10px;
+            text-align: center;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            user-select: none;
+            text-decoration: none;
+            color: #222;
+        }
+
+        .topico-card:hover {
+            background-color: #6a9eff;
+            color: white;
+            transform: translateY(-4px);
+        }
+
+        /* Responsividade para dispositivos móveis */
+        @media (max-width: 600px) {
+            h1.titulo {
+                font-size: 1.6rem;
+            }
+
+            .topico-card {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="titulo">Tópicos de Sociologia</h1>
+
+    <div class="categoria-box">
+        <h2>Sociologia</h2>
+        <div class="topico-grid">
+            <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Surgimento da Sociologia">Surgimento da
+                Sociologia</a>
+            <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Comte e o Positivismo">Comte e o Positivismo</a>
+            <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Émile Durkheim">Émile Durkheim</a>
+            <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Max Weber">Max Weber</a>
+            <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Karl Marx">Karl Marx</a>
+            <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Sociologia no Brasil">Sociologia no Brasil</a>
+            <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Revolução Industrial e Globalização">Revolução
+                Industrial e Globalização</a>
+            <a class="topico-card"
+                href="../../PHP/sistema/questao.php?topico=Estratificação, Classe e Mobilidade social">Estratificação, Classe e
+                Mobilidade social</a>
+            <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Poder, Política e Estado">Poder, Política e
+                Estado</a>
+            <a class="topico-card"
+                href="../../PHP/sistema/questao.php?topico=Direitos, Cidadania e Movimentos sociais">Direitos, Cidadania e
+                Movimentos sociais</a>
+            <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Instituições Sociais">Instituições Sociais</a>
+            <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Cultura e Educação">Cultura e Educação</a>
+            <a class="topico-card" href="../../PHP/sistema/questao.php?topico=Zygmunt Bauman e a Modernidade Líquida">Zygmunt
+                Bauman e a Modernidade Líquida</a>
+        </div>
+    </div>
+
+</body>
+
+</html>

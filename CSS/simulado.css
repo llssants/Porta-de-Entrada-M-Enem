@@ -1,0 +1,168 @@
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
+  margin: 0;
+  padding: 0;
+}
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Caixa do modal */
+.modal {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+.modal h2 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  color: #a80000;
+}
+
+.modal .questoes-lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.modal .questoes-lista button {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: #a80000;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.modal .questoes-lista button:hover {
+  background: #fd7e14;
+}
+
+.modal .fechar {
+  margin-top: 15px;
+  background: #ddd;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+/* Barra do timer */
+.header-timer {
+  background: #a80000;
+  color: #fff;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header-timer .tempo {
+  font-size: 28px;
+  font-weight: bold;
+}
+.header-timer .menu {
+  width: 35px;
+  height: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.header-timer .menu span {
+  background: #ddd;
+  height: 5px;
+  border-radius: 3px;
+}
+
+/* Área da questão */
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  border: 2px solid #00000047;
+  border-radius: 5px;
+  background: #fff;
+}
+
+.questao h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.badges {
+  margin: 5px 0 10px 0;
+}
+.badges span {
+  background: #d9534f22;
+  color: #a80000;
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 12px;
+  margin-right: 5px;
+}
+
+.enunciado {
+  margin: 10px 0 20px;
+  font-size: 15px;
+}
+
+/* Alternativas */
+.alternativas {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.alternativa {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fdfdfd;
+  padding: 10px 15px;
+  border-radius: 4px;
+  border: 1px solid #eee;
+  cursor: pointer;
+}
+.alternativa.selected {
+  background: #e0f7ff;
+}
+.alternativa.subline {
+  text-decoration: line-through;
+  color: #a80e0e;
+}
+
+.alternativa .xMark {
+  background: #eee;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Navegação */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+.nav button {
+  padding: 10px 25px;
+  border: none;
+  border-radius: 4px;
+  background: #a80000;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
