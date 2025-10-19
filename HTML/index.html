@@ -7,7 +7,9 @@
     <title>Porta de Entrada</title>
     <link rel="stylesheet" href="../CSS/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 
 <body>
@@ -15,7 +17,7 @@
     <!-- Navbar -->
     <header class="navbar">
         <div class="logo">
-            <img class="logo" src="../IMG/logo.png" alt="logo"> 
+            <img src="../IMG/logo.png" alt="logo">
             <p>Porta de Entrada</p>
         </div>
         <nav>
@@ -23,8 +25,7 @@
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Sobre</a></li>
                 <li><a href="#">Dúvidas</a></li>
-                <li><a href="../PHP/cadastro/login.php"><img class="logar"
-                            src="../IMG/entrar.png" alt="logar"></a></li>
+                <!-- <li><a href="../PHP/cadastro/login.php"><img class="logar" src="../IMG/entrar.png" alt="logar"></a></li> -->
             </ul>
         </nav>
         <div class="menu-icon">☰</div>
@@ -32,11 +33,10 @@
 
     <!-- Banner -->
     <section class="banner">
-        <div class="banner-text">
-            <img class="img-banner" src="../IMG/banner.png" alt="banner">
-        </div>
+        <img class="img-banner" src="../IMG/banner.png" alt="banner">
     </section>
 
+    <!-- Nossa História -->
     <section class="section red">
         <h2>NOSSA HISTÓRIA</h2>
         <div class="grid-2">
@@ -46,35 +46,32 @@
                     experiências em algo único e especial. Desde o nosso primeiro passo, nossa missão sempre foi criar
                     um espaço onde qualidade, inovação e acolhimento andam juntos.
 
-                    Com o tempo, enfrentamos desafios e celebramos conquistas que nos moldaram e fortaleceram. Cada
-                    projeto, cada colaboração, cada cliente satisfeito se tornou parte da nossa trajetória, construindo
-                    uma história feita de confiança e dedicação.
+                    Ao longo do tempo, enfrentamos desafios que nos fizeram aprender, crescer e fortalecer nosso
+                    compromisso com cada cliente, parceiro e colaborador. Cada projeto concluído, cada feedback recebido
+                    e cada pequena conquista tornou-se parte da nossa história.
 
-                    Hoje, seguimos firmes, olhando para o futuro com entusiasmo e compromisso, prontos para crescer e
-                    inovar ainda mais. Essa é a nossa história — feita para você, com você.</p>
+                    Nosso foco sempre foi oferecer experiências que deixem uma marca positiva, promovendo confiança,
+                    criatividade e acolhimento. Cada detalhe, cada escolha e cada esforço refletem nosso compromisso de
+                    excelência.
+
+                    Hoje, seguimos com entusiasmo, olhando para o futuro com grandes ideias, inovação constante e
+                    vontade de fazer a diferença. Essa é a nossa história — feita para você, com você, e para todos que
+                    acreditam na importância de construir juntos algo significativo e duradouro.
+                </p>
             </div>
             <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="Nossa história" />
         </div>
     </section>
 
+    <!-- Nossos Profissionais -->
     <section class="section red">
         <h2>NOSSOS PROFISSIONAIS</h2>
         <div class="carousel-container">
             <button class="btn prev">&lt;</button>
             <div class="grid-3">
-                <div class="box-img"></div>
-                <div class="box-img"></div>
-                <div class="box-img"></div>
-                <div class="box-img"></div>
-                <div class="box-img"></div>
-                <div class="box-img"></div>
-                <div class="box-img"></div>
-                <div class="box-img"></div>
-                <div class="box-img"></div>
-                <div class="box-img"></div>
-                <div class="box-img"></div>
-                <div class="box-img"></div>
+                <div class="box-img"><img src="../IMG/me.jpg" alt=""></div>
+                <div class="box-img"><img src="../IMG/livi.jpg" alt=""></div>
                 <div class="box-img"></div>
                 <div class="box-img"></div>
                 <div class="box-img"></div>
@@ -86,47 +83,52 @@
         </div>
     </section>
 
-
-    <!-- Saiba o que são os vestibulares -->
+    <!-- Video Educacional -->
     <section class="section red">
         <h2 class="video-h2">SAIBA O QUE SÃO OS VESTIBULARES</h2>
         <div class="video-box">
             <iframe src="https://www.youtube.com/embed/pIXQIclP1D0?si=hXtfkSDlZhG4uXmV" title="YouTube video player"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                allowfullscreen>
             </iframe>
         </div>
     </section>
 
     <!-- Rodapé -->
-    <footer class="footer">
-        <div class="footer-top">
-            <h2>Faça parte</h2>
-        </div>
-        <div class="footer-main">
-            <div class="footer-left">
-                <h3>Porta Entrada</h3>
-                <div class="social-icons">
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-            <div class="footer-right">
-                <ul>
-                    <li><strong>Contatos</strong></li>
-                    <li>Email</li>
-                    <li>Telefone</li>
-                    <li>Aplicativo</li>
-                </ul>
+   <!-- Rodapé -->
+<footer class="footer">
+    <div class="footer-top">
+        <h2>Faça parte</h2>
+    </div>
+    <div class="footer-main">
+        <div class="footer-left">
+            <h3>Porta Entrada</h3>
+            <div class="social-icons">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
-    </footer>
 
-    <!-- Importa fonte dos ícones Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+        <!-- Centro do footer -->
+        <div class="footer-center">
+            <p>Sonhe com a gente!</p>
+        </div>
 
+        <div class="footer-right">
+            <ul>
+                <li><strong>Contatos</strong></li>
+                <li>Email</li>
+                <li>Telefone</li>
+                <li>Aplicativo</li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- Carousel Script -->
     <script>
         const prevBtn = document.querySelector('.btn.prev');
         const nextBtn = document.querySelector('.btn.next');
@@ -135,7 +137,6 @@
 
         prevBtn.addEventListener('click', () => {
             if (carousel.scrollLeft <= 0) {
-                // Se estiver no início, pula para o fim
                 carousel.scrollTo({ left: carousel.scrollWidth, behavior: 'smooth' });
             } else {
                 carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
@@ -143,16 +144,14 @@
         });
 
         nextBtn.addEventListener('click', () => {
-            // Verifica se está perto do final
             if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth) {
-                // Se estiver no fim, volta para o início
                 carousel.scrollTo({ left: 0, behavior: 'smooth' });
             } else {
                 carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
             }
         });
-
     </script>
+
 </body>
 
 </html>
