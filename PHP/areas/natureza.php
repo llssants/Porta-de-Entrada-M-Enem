@@ -1,80 +1,7 @@
 <?php
 require "../cadastro/conexao.php";
 
-// --- SE RECEBEU JSON (chamada do fetch para registrar resposta) ---
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && str_contains($_SERVER['CONTENT_TYPE'], 'application/json')) {
-    $data = json_decode(file_get_contents('php://input'), true);
-    $id_usuario = $data['id_usuario'] ?? 0;
-    $id_questao = $data['id_questao'] ?? 0;
-    $acertou = $data['acertou'] ?? 0;
-    $nivel = strtolower($data['nivel'] ?? 'médio');
-    $data_resposta = date('Y-m-d H:i:s');
-
-    if (!$id_usuario || !$id_questao) {
-        echo json_encode(['status'=>'erro', 'msg'=>'Dados incompletos.']);
-        exit;
-    }
-
-    // --- DEFINIR PONTOS POR NÍVEL ---
-    $pontos = 0;
-    if ($acertou == 1) {
-        switch ($nivel) {
-            case 'fácil':
-            case 'facil': $pontos = 3; break;
-            case 'médio':
-            case 'medio': $pontos = 5; break;
-            case 'difícil':
-            case 'dificil': $pontos = 7; break;
-            default: $pontos = 1;
-        }
-    } else {
-        // usuário errou
-        $pontos = 0;
-        // opcional: pegar valor da alternativa correta
-        $resAlt = $conexao->query("SELECT id_questao FROM alternativas WHERE id_questao = $id_questao AND correta = 1");
-        if($resAlt && $resAlt->num_rows > 0){
-            $rowAlt = $resAlt->fetch_assoc();
-            // Se quiser, poderia usar $rowAlt['id_questao'] para algo, mas normalmente não soma pontos ao usuário
-        }
-    }
-
-    // --- ATUALIZAR OU INSERIR EM DESEMPENHO ---
-    $res = $conexao->query("SELECT * FROM desempenho WHERE id_usuario = $id_usuario");
-    if ($res && $res->num_rows > 0) {
-        $row = $res->fetch_assoc();
-        $acertos = $row['acertos'] + ($acertou ? 1 : 0);
-        $erros = $row['erros'] + ($acertou ? 0 : 1);
-        $pontos_totais = $row['pontos'] + $pontos;
-
-        $upd = $conexao->prepare("UPDATE desempenho SET acertos=?, erros=?, pontos=? WHERE id_usuario=?");
-        $upd->bind_param("iiii", $acertos, $erros, $pontos_totais, $id_usuario);
-        $upd->execute();
-        $msg = "Desempenho atualizado";
-    } else {
-        $acertos = $acertou ? 1 : 0;
-        $erros = $acertou ? 0 : 1;
-        $pontos_totais = $pontos;
-
-        $ins = $conexao->prepare("INSERT INTO desempenho (id_usuario, acertos, erros, pontos) VALUES (?, ?, ?, ?)");
-        $ins->bind_param("iiii", $id_usuario, $acertos, $erros, $pontos_totais);
-        $ins->execute();
-        $msg = "Novo desempenho criado";
-    }
-
-    echo json_encode([
-        "status" => "ok",
-        "msg" => $msg,
-        "debug" => [
-            "id_usuario" => $id_usuario,
-            "acertou" => $acertou,
-            "nivel" => $nivel,
-            "pontos" => $pontos
-        ]
-    ]);
-    exit; // ⬅️ importante, para não rodar o restante da página
-}
-
-// --- SE NÃO RECEBEU POST, MOSTRA A PÁGINA NORMAL ---
+// Buscar questões com tópicos e disciplinas
 $sql = "
     SELECT 
         q.id_questao, q.enunciado, q.imagem_enunciado, 
@@ -91,6 +18,7 @@ $sql = "
 ";
 
 $result = mysqli_query($conexao, $sql);
+
 $questoes = [];
 if ($result) {
     while ($row = mysqli_fetch_assoc($result)) {
@@ -118,8 +46,6 @@ if ($result) {
     exit;
 }
 ?>
-
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -384,79 +310,67 @@ function renderQuestao(i){
     if(q.imagem){
         html += `<img src="../../IMG/Upload/${q.imagem}" class="enunciado-img">`;
     }
-    html += `<p class="enunciado">${q.enunciado}</p>
-        <div class="alternativas">`;
-    q.alternativas.forEach((a, idx) => {
+    html += `<p class="enunciado">${q.enunciado}</p>`;
+    html += `<div class="alternativas">`;
+    q.alternativas.forEach((a,idx)=>{
         html += `<div class="alternativa" onclick="selecionar(this, ${idx})">
             ${String.fromCharCode(65+idx)}) ${a.texto}
         </div>`;
     });
     html += `</div>
-        <button class="btn" onclick="verificar()">Verificar resposta</button>
-        <div class="meta-line">Origem: <b>${q.origem || '-'}</b> | Dificuldade: <b>${q.dificuldade || '-'}</b> | Ano: <b>${q.ano || '-'}</b></div>
-        <div style="display:flex;gap:8px;margin-top:14px;">
-            <button class="btn ghost" id="prevBtn" ${i===0?'disabled':''}>Anterior</button>
-            <button class="btn" id="nextBtn" ${i===QUESTOES_FILTRADAS.length-1?'disabled':''}>Próxima</button>
-        </div>
+      <button class="btn" onclick="verificar(); registrarQuestao(${q.id});">Verificar resposta</button>
+      <div class="meta-line">Origem: <b>${q.origem || '-'}</b> | Dificuldade: <b>${q.dificuldade || '-'}</b> | Ano: <b>${q.ano || '-'}</b></div>
+      <div style="display:flex;gap:8px;margin-top:14px;">
+        <button class="btn ghost" id="prevBtn" ${i===0?'disabled':''}>Anterior</button>
+        <button class="btn" id="nextBtn" ${i===QUESTOES_FILTRADAS.length-1?'disabled':''}>Próxima</button>
+      </div>
     </div>`;
 
     cardsGrid.innerHTML = html;
 
-    document.getElementById('prevBtn').onclick = () => {
+    document.getElementById('prevBtn').onclick = ()=> {
         if(indexAtual > 0){ indexAtual--; renderQuestao(indexAtual); }
     };
-    document.getElementById('nextBtn').onclick = () => {
+    document.getElementById('nextBtn').onclick = ()=> {
         if(indexAtual < QUESTOES_FILTRADAS.length - 1){ indexAtual++; renderQuestao(indexAtual); }
     };
 }
 
-// --- SELEÇÃO DE ALTERNATIVA ---
 function selecionar(el, ai){
-    document.querySelectorAll('.alternativa').forEach(div => div.classList.remove('selected'));
+    document.querySelectorAll('.alternativa').forEach(div=>div.classList.remove('selected'));
     el.classList.add('selected');
     el.dataset.index = ai;
 }
 
-// --- VERIFICAR RESPOSTA ---
-function verificar() {
+function verificar(){
     const q = QUESTOES_FILTRADAS[indexAtual];
     const alternativas = document.querySelectorAll('.alternativa');
-    let selecionada = -1;
-
-    alternativas.forEach((div, idx) => {
+    alternativas.forEach((div,idx)=>{
         const correta = q.alternativas[idx].correta == 1;
-        if(div.classList.contains('selected')) selecionada = idx;
-
-        if(correta) div.classList.add('correct');
-        else if(div.classList.contains('selected')) div.classList.add('wrong');
+        if(correta){
+            div.classList.add('correct');
+        } else if(div.classList.contains('selected')){
+            div.classList.add('wrong');
+        }
     });
-
-    if(selecionada === -1){
-        alert('Selecione uma alternativa antes de verificar.');
-        return;
-    }
-
-    const acertou = q.alternativas[selecionada].correta == 1 ? 1 : 0;
-    const nivel = q.dificuldade || 'médio';
-
-    registrarQuestao(q.id, acertou, nivel);
 }
 
-// --- REGISTRAR QUESTÃO E DESEMPENHO ---
-function registrarQuestao(id_questao, acertou, nivel) {
-    const id_usuario = 1; // 🔹 substituir pelo ID da sessão PHP
+// --- REGISTRAR QUESTÃO NO BANCO ---
+function registrarQuestao(id_questao) {
+    const id_usuario = 1; // ou pegar do session/PHP
+    const area = "natureza"; 
 
-    fetch(window.location.href, { // 🔹 envia para o mesmo arquivo
+    fetch('salvar_questao.php', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({ id_usuario, id_questao, acertou, nivel })
+        body: JSON.stringify({id_usuario, id_questao, area})
     })
     .then(res => res.json())
     .then(data => {
         if(data.status === 'ok'){
-            console.log('✅ Questão registrada e desempenho atualizado:', data.msg);
+            console.log('✅ Questão registrada:', data.msg);
         } else {
-            console.warn('⚠️ Erro ao registrar:', data.msg);
+            console.warn('⚠️ Erro ao salvar questão:', data.msg);
         }
     })
     .catch(err => console.error('Erro na requisição:', err));
@@ -466,8 +380,8 @@ function registrarQuestao(id_questao, acertou, nivel) {
 function populateTopicos(disciplina){
     topicSelect.innerHTML = '<option value="">— Todos os tópicos —</option>';
     const filtered = QUESTOES.filter(q => !disciplina || q.disciplina === disciplina);
-    const topicos = [...new Set(filtered.map(q => q.topico))].sort();
-    topicos.forEach(t => {
+    const topicos = [...new Set(filtered.map(q=>q.topico))].sort();
+    topicos.forEach(t=>{
         const o = document.createElement('option');
         o.value = t; o.textContent = t;
         topicSelect.appendChild(o);
@@ -479,7 +393,7 @@ function getFiltered(){
     const disc = discSelect.value;
     const top = topicSelect.value;
     const search = searchTxt.value.trim().toLowerCase();
-    return QUESTOES.filter(q => {
+    return QUESTOES.filter(q=>{
         if(disc && q.disciplina !== disc) return false;
         if(top && q.topico !== top) return false;
         if(search && !q.enunciado.toLowerCase().includes(search)) return false;
@@ -500,23 +414,24 @@ clearBtn.addEventListener('click', ()=>{
     cardsGrid.innerHTML = '<p style="color:#666">Nenhuma matéria filtrada.</p>';
 });
 
-discSelect.addEventListener('change', e => {
+discSelect.addEventListener('change', e=>{
     populateTopicos(e.target.value);
 });
 
-tabs.forEach(t => {
-    t.addEventListener('click', () => {
-        tabs.forEach(x => x.classList.remove('active'));
+tabs.forEach(t=>{
+    t.addEventListener('click', ()=>{
+        tabs.forEach(x=>x.classList.remove('active'));
         t.classList.add('active');
         discSelect.value = t.dataset.disciplina;
         populateTopicos(t.dataset.disciplina);
-        QUESTOES_FILTRADAS = QUESTOES.filter(q => q.disciplina === t.dataset.disciplina);
+        QUESTOES_FILTRADAS = QUESTOES.filter(q=>q.disciplina === t.dataset.disciplina);
         indexAtual = 0;
         renderQuestao(indexAtual);
     });
 });
-</script>
 
+
+</script>
 
 </body>
 </html>

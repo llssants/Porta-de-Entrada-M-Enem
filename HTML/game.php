@@ -1,11 +1,8 @@
 
 <?php
-require_once '../PHP/cadastro/conexao.php';
+require_once '../PHP/cadastro/conexao.php'; // já cria $conexao
 
 $id_usuario = 1;
-
-// Total de questões
-$totalPerguntas = 2000;
 
 // --- 1️⃣ Pegar progresso do usuário ---
 $stmt = $conexao->prepare("SELECT COUNT(*) FROM questoes_feitas WHERE id_usuario = ?");
@@ -15,31 +12,27 @@ $stmt->bind_result($perguntasFeitas);
 $stmt->fetch();
 $stmt->close();
 
-// Níveis automáticos
-$nivelAtual = floor($perguntasFeitas / ceil($totalPerguntas/12));
-if($nivelAtual > 11) $nivelAtual = 11;
+// Total de questões
+$totalPerguntas = 2000;
 
-// Baús desbloqueados
-$baus = [4, 8]; // entre 4-5 e 8-9
+// Nível atual do usuário
+$stmt = $conexao->prepare("SELECT nivel FROM ranking WHERE id_usuario = ?");
+$stmt->bind_param("i", $id_usuario);
+$stmt->execute();
+$stmt->bind_result($nivelAtual);
+$stmt->fetch();
+$stmt->close();
+
+// Baús desbloqueados (milestones)
+$milestones = [0,3,6,9,11];
 $bausDesbloqueados = [];
-foreach ($baus as $b) {
-    if ($perguntasFeitas >= ($b * ceil($totalPerguntas/12))) {
-        $bausDesbloqueados[] = $b;
+foreach ($milestones as $idx => $milestone) {
+    if ($nivelAtual >= $milestone && ($idx+1) <= count($milestones)) {
+        $bausDesbloqueados[] = $idx+1;
     }
 }
+
 ?>
-<script>
-// Dados do PHP para JS
-const perguntasFeitas = <?php echo intval($perguntasFeitas); ?>;
-const totalPerguntas = <?php echo intval($totalPerguntas); ?>;
-const nivelAcessivel = <?php echo intval($nivelAtual); ?>;
-const bausDesbloqueados = <?php echo json_encode($bausDesbloqueados); ?>;
-
-// Cada nível tem aproximadamente 167 questões
-const questoesPorNivel = Math.ceil(totalPerguntas / 12);
-console.log("Questões por nível:", questoesPorNivel);
-</script>
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
