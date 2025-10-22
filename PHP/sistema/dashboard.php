@@ -46,9 +46,9 @@ function adicionarPontos($pts) {
 if (isset($_POST['estudar'])) {
     $hoje = date("Y-m-d");
     if ($_SESSION['ultimo_estudo'] != $hoje) {
-        adicionarPontos(10);
+        adicionarPontos(1);
         $_SESSION['ultimo_estudo'] = $hoje;
-        $msg = " Parabéns! Você estudou hoje e ganhou +10 pontos!";
+        $msg = " Parabéns! Você estudou hoje e ganhou +1 pontos!";
     } else {
         $msg = " Você já marcou estudo hoje! Volte amanhã ";
     }
@@ -161,7 +161,7 @@ $mensagemMotivacional = $mensagens[array_rand($mensagens)];
         </div>
 
         <div>
-            <label for="barraProgresso" class="form-label"><strong>Meta mensal: 500 pontos</strong></label>
+            <label for="barraProgresso" class="form-label"><strong>Meta mensal: 30 pontos</strong></label>
             <?php 
                 $progress = min(100, ($_SESSION['pontos'] / 500) * 100);
             ?>
@@ -200,9 +200,9 @@ $mensagemMotivacional = $mensagens[array_rand($mensagens)];
         <form method="post" aria-label="Formulário dos desafios diários">
             <?php 
             $desafios_texto = [
-                'ler_30_minutos' => 'Ler 30 minutos',
-                'responder_questao' => 'Responder uma questão',
-                'assistir_video' => 'Assistir um vídeo educacional',
+                'ler_30_minutos' => 'Fazer 3 questões de sociologia',
+                'responder_questao' => 'Postar 1 resumo',
+                'assistir_video' => 'Fazer 10 questões de Física Quantica',
             ];
             foreach ($desafios_texto as $key => $texto): ?>
                 <button 
