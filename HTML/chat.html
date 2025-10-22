@@ -1,35 +1,51 @@
-
+<?php
+$conn = new mysqli("localhost", "root", "", "chat_db");
+if ($conn->connect_error) {
+    die("Erro de conexão: " . $conn->connect_error);
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <title>Chatbot Porta de Entrada</title>
+<meta charset="UTF-8">
+<title>Chat Vermelho</title>
     <link rel="stylesheet" href="../CSS/chat.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 <body>
 
-    <div class="chat-container">
-        <div class="chat-header">
-            <div class="chat-info">
-                <div class="avatar-header"></div>
-                <span>Assistente Virtual</span>
-            </div>
-            <div class="chat-actions">
-                <i class="fas fa-phone"></i>
-                <i class="fas fa-video"></i>
-                <i class="fas fa-ellipsis-v"></i>
-            </div>
-        </div>
-        <div class="messages" id="messages"></div>
-        <div class="chat-input-area">
-            <input type="text" id="chatInput" placeholder="Digite sua mensagem...">
-            <button id="sendButton"><i class="fas fa-paper-plane"></i></button>
-        </div>
-    </div>
+<div class="chat-box">
+    <div class="messages" id="messages"></div>
+    <form id="chatForm">
+        <input type="text" name="usuario" placeholder="Seu nome" required>
+        <input type="text" name="mensagem" placeholder="Digite sua mensagem" required>
+        <button type="submit">Enviar</button>
+    </form>
+</div>
 
-    <script src="../JS/chatbot.js"></script>
+<script>
+function carregarMensagens() {
+    fetch("load.php")
+        .then(res => res.text())
+        .then(html => {
+            document.getElementById("messages").innerHTML = html;
+            let msgBox = document.getElementById("messages");
+            msgBox.scrollTop = msgBox.scrollHeight;
+        });
+}
+
+document.getElementById("chatForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    let formData = new FormData(this);
+    fetch("send.php", { method: "POST", body: formData })
+        .then(() => {
+            this.mensagem.value = "";
+            carregarMensagens();
+        });
+});
+
+setInterval(carregarMensagens, 2000);
+carregarMensagens();
+</script>
 
 </body>
 </html>
-
